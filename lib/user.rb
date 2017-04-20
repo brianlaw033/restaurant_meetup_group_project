@@ -2,47 +2,43 @@ class User < ActiveRecord::Base
   belongs_to(:cuisine)
   belongs_to(:district)
   belongs_to(:budget)
+  belongs_to(:timeslot)
+
   has_many(:match_as_user1, :class_name => 'Match', :foreign_key => 'user1_id')
   has_many(:match_as_user2, :class_name => 'Match', :foreign_key => 'user2_id')
   validates :username, presence: true
   validates :username, uniqueness: { case_sensitive: false }
 
-  define_method(:matchmake) do
-    users = User.all()
-    matched_users = []
+  CRITERIA = ['cuisine_id', 'district_id', 'budget_id', 'timeslot_id']
+
+  def matchmake()
+    result = []
+    if self.gender_preference != ""
+      users = User.where(:gender => self.gender_preference).where.not(id: self.id)
+    else
+      users = User.where.not(id: self.id)
+    end
+    filtered_criteria = self.attributes.delete_if{|key,name| not CRITERIA.include?(key)}
+    filtered_criteria.keep_if{|key,name| name != nil}
     users.each do |user|
-      if user.district_id == self.district_id && user.cuisine_id == self.cuisine_id && user.budget_id == self.budget_id
-        matched_users.push(user) if user.id != self.id
-      end
-      if user.district_id == self.district_id && user.cuisine_id == self.cuisine_id
-        matched_users.push(user) if user.id != self.id
-      end
-      if user.district_id == self.district_id && user.budget_id == self.budget_id
-        matched_users.push(user) if user.id != self.id
-      end
-      if user.cuisine_id == self.cuisine_id && user.budget_id == self.budget_id
-        matched_users.push(user) if user.id != self.id
-      end
-      if user.district_id == self.district_id
-        matched_users.push(user) if user.id != self.id
-      end
-      if user.cuisine_id == self.cuisine_id
-        matched_users.push(user) if user.id != self.id
-      end
-      if user.budget_id == self.budget_id
-        matched_users.push(user) if user.id != self.id
+      temp_user = user.attributes.delete_if{|key,name| not CRITERIA.include?(key)}
+      temp_user.keep_if{|key,name| name != nil}
+      temp_me = filtered_criteria.select{|key,name| temp_user[key]}
+      temp_user.keep_if{|key,name| filtered_criteria[key]}
+      if temp_me == {}
+        result.push(user)
+      elsif temp_me == temp_user
+        result.push(user)
       end
     end
-
-    # have fun bro
-    return matched_users
+    result
   end
 
-  define_method(:user1_accept) do |user2_id|
+  def user1_accept(user2_id)
     match = Match.create({:user1_id => self.id, :user2_id => user2_id, :user1_like => true })
   end
 
-  define_method(:matchmake_invitations) do
+  def matchmake_invitations()
     matches = Match.all()
     invitations = []
     matches.each() do |match|
