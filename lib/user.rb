@@ -14,27 +14,26 @@ class User < ActiveRecord::Base
       if user.district_id == self.district_id && user.cuisine_id == self.cuisine_id && user.budget_id == self.budget_id
         matched_users.push(user) if user.id != self.id
       end
-    end
-    users.each do |user|
-      if user.district_id == self.district_id && user.budget_id == self.budget_id && user.cuisine_id != self.cuisine_id
+      if user.district_id == self.district_id && user.cuisine_id == self.cuisine_id
+        matched_users.push(user) if user.id != self.id
+      end
+      if user.district_id == self.district_id && user.budget_id == self.budget_id
+        matched_users.push(user) if user.id != self.id
+      end
+      if user.cuisine_id == self.cuisine_id && user.budget_id == self.budget_id
+        matched_users.push(user) if user.id != self.id
+      end
+      if user.district_id == self.district_id
+        matched_users.push(user) if user.id != self.id
+      end
+      if user.cuisine_id == self.cuisine_id
+        matched_users.push(user) if user.id != self.id
+      end
+      if user.budget_id == self.budget_id
         matched_users.push(user) if user.id != self.id
       end
     end
-    users.each do |user|
-      if user.district_id == self.district_id && user.budget_id != self.budget_id && user.cuisine_id != self.cuisine_id
-        matched_users.push(user) if user.id != self.id
-      end
-    end
-    users.each do |user|
-      if user.district_id != self.district_id && user.budget_id == self.budget_id && user.cuisine_id != self.cuisine_id
-        matched_users.push(user) if user.id != self.id
-      end
-    end
-    users.each do |user|
-      if user.district_id != self.district_id && user.budget_id != self.budget_id && user.cuisine_id != self.cuisine_id
-        matched_users.push(user) if user.id != self.id
-      end
-    end
+
     # have fun bro
     return matched_users
   end

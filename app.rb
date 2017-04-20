@@ -12,19 +12,19 @@ configure do
   enable :sessions
 end
 
-register do
-  def auth (type)
-    condition do
-      redirect "/login" unless send("is_#{type}?")
-    end
-  end
-end
-
-helpers do
-  def is_user?
-    @user != nil
-  end
-end
+# register do
+#   def auth (type)
+#     condition do
+#       redirect "/login" unless send("is_#{type}?")
+#     end
+#   end
+# end
+#
+# helpers do
+#   def is_user?
+#     @user != nil
+#   end
+# end
 
 before do
   if session[:id] == nil
@@ -114,29 +114,29 @@ get('/match_making') do
   erb(:match_making)
 end
 
-  post('/match_cross') do
-    @users = @user.matchmake()
-    if params.fetch('count').to_i() < @users.length()-1
-      @number = params.fetch('count').to_i() + 1
-    else
-      @number=0
-    end
-    @current_user = @user.matchmake[@number]
-    erb(:match_making)
+post('/match_cross') do
+  @users = @user.matchmake()
+  if params.fetch('count').to_i() < @users.length()-1
+    @number = params.fetch('count').to_i() + 1
+  else
+    @number=0
   end
+  @current_user = @user.matchmake[@number]
+  erb(:match_making)
+end
 
-  post('/match_tick') do
-    @users = @user.matchmake()
-    if params.fetch('count').to_i() < @users.length()-1
-      @number = params.fetch('count').to_i() + 1
-    else
-      @number=0
-    end
-    @current_user = @user.matchmake[@number]
-    @user_to_be_added = @user.matchmake[@number-1]
-    @user.user1_accept(@user_to_be_added.id())
-    erb(:match_making)
+post('/match_tick') do
+  @users = @user.matchmake()
+  if params.fetch('count').to_i() < @users.length()-1
+    @number = params.fetch('count').to_i() + 1
+  else
+    @number=0
   end
+  @current_user = @user.matchmake[@number]
+  @user_to_be_added = @user.matchmake[@number-1]
+  @user.user1_accept(@user_to_be_added.id())
+  erb(:match_making)
+end
 
 get('/logout') do
   session.clear
