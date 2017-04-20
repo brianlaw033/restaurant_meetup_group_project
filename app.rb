@@ -12,19 +12,19 @@ configure do
   enable :sessions
 end
 
-# register do
-#   def auth (type)
-#     condition do
-#       redirect "/login" unless send("is_#{type}?")
-#     end
-#   end
-# end
-#
-# helpers do
-#   def is_user?
-#     @user != nil
-#   end
-# end
+register do
+  def auth (type)
+    condition do
+      redirect "/login" unless send("is_#{type}?")
+    end
+  end
+end
+
+helpers do
+  def is_user?
+    @user != nil
+  end
+end
 
 before do
   if session[:id] == nil
@@ -63,9 +63,10 @@ end
 post("/sign_up") do
   name = params.fetch('name')
   username = params.fetch('username')
+  gender = params.fetch('gender')
   image = params.fetch('image')
   password = params.fetch('password').to_sha1()
-  @user = User.new({:username => username, :name => name, :image => image, :password =>password})
+  @user = User.new({:username => username, :name => name, :gender => gender,:image => image, :password =>password})
   if @user.save()
     session[:id] = @user.id
     redirect('/user')
