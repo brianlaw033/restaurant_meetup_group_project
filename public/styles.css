@@ -1,3 +1,41 @@
+#droppable {  position: fixed; top: 4em; left: 0em; width: 35em; height: 38em; z-index: -5}
+.drop-hover-dislike {background-image: url(https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQfMakbs-6VrgvK-8LaOPItgoXhq81pSjOJ-AFbosBx63oL9HBi);
+            background-size: 29em;
+            background-position: bottom;
+           background-repeat: no-repeat;}
+
+#droppable2 { position: fixed; top: 4em; right: 0em; width: 35em; height: 38em; z-index: -5}
+.drop-hover-like {background-image: url(https://www.toonpool.com/user/328/files/like_1686535.jpg);
+            background-size: 29em;
+            background-position: bottom;
+           background-repeat: no-repeat;}
+
+#say-yes {
+  position: fixed;
+  top: 5em;
+  right: 0.5em;
+  font-family: "News Cycle","Arial Narrow Bold",sans-serif;
+  font-size: 38px;
+  font-weight: bold;
+  color: green;
+}
+
+#div-button {
+  margin-bottom: 5px;
+}
+
+#say-no {
+  position: fixed;
+  top: 5em;
+  left: 0.5em;
+  font-family: "News Cycle","Arial Narrow Bold",sans-serif;
+  font-size: 38px;
+  font-weight: bold;
+  color: red;
+}
+
+
+
 a {
   color: white;
   width: 60px;
