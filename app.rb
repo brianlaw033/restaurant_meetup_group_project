@@ -12,19 +12,19 @@ configure do
   enable :sessions
 end
 
-# register do
-#   def auth (type)
-#     condition do
-#       redirect "/login" unless send("is_#{type}?")
-#     end
-#   end
-# end
-#
-# helpers do
-#   def is_user?
-#     @user != nil
-#   end
-# end
+register do
+  def auth (type)
+    condition do
+      redirect "/login" unless send("is_#{type}?")
+    end
+  end
+end
+
+helpers do
+  def is_user?
+    @user != nil
+  end
+end
 
 before do
   if session[:id] == nil
