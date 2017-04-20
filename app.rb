@@ -115,6 +115,7 @@ get('/match_making') do
   @number = 0
   @users = @user.matchmake()
   @current_user = @user.matchmake[@number]
+  binding.pry
   erb(:match_making)
 end
 
