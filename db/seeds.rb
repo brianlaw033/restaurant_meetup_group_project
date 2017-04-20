@@ -8,8 +8,6 @@ list = [
   end
 end
 
-
-
 class Budget < ActiveRecord::Base
 list = [
     "30" , "50" , "70" , "100", "150" , "200" , "300"
