@@ -1,6 +1,6 @@
 require("bundler/setup")
 Bundler.require(:default)
-require('pry')
+
 require('rickshaw')
 require('rack')
 require "sinatra/reloader"
