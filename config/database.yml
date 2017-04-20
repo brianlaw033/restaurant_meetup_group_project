@@ -1,3 +1,6 @@
+production:
+  adapter: postgresql
+  database: neca_production
 development:
   adapter: postgresql
   database: neca_development
