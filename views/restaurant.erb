@@ -1,0 +1,56 @@
+<h1><%= @restaurant.name%></h1>
+
+<div class="restaurant_properties">
+    <img src="<%= @restaurant.image%>">
+    <p>Phone:<%=@restaurant.phone%></p>
+    <p>District: <%=@restaurant.district_id%></p>
+    <p>Address: <%=@restaurant.address%></p>
+    <p>Cuisine:<%=@restaurant.cuisine_id%></p>
+    <p>
+      Budget:<%= @restaurant.budget_id%>
+    </p>
+    </div>
+</div>
+
+<div class="update_restaurant">
+  <form class="form-horizontal" id="update_restaurant_id" action="/restaurant/<%= @restaurant.id()%>" method="post">
+    <input name="_method" value="patch" type="hidden">
+
+    <div class="form-group">
+      <label class="col-sm-1" for="name">Name:</label>
+      <input class="col-sm-4" type="text" name="name" value="" placeholder="<%= @restaurant.name()%>">
+    </div>
+    <div class="form-group">
+      <label class="col-sm-1" for="address">Address:</label>
+      <input class="col-sm-4" type="text" name="address" value="" placeholder="<%= @restaurant.address()%>">
+    </div>
+    <div class="form-group">
+      <label class="col-sm-1" for="phone">Phone:</label>
+      <input class="col-sm-4" type="text" name="phone" value="" placeholder="<%= @restaurant.phone()%>">
+    </div>
+    <div class="form-group">
+      <label class="col-sm-1" for="image">Image URL:</label>
+      <input class="col-sm-4" type="text" name="image" value="" placeholder="<%= @restaurant.image()%>">
+    </div>
+    <div class="form-group">
+      <label class="col-sm-1" for="district_id">District:</label>
+      <input class="col-sm-4" type="text" name="district_id" value="" placeholder="<%= @restaurant.district_id()%>">
+    </div>
+    <div class="form-group">
+      <label class="col-sm-1" for="cuisine_id">Cuisine:</label>
+      <input class="col-sm-4" type="text" name="cuisine" value="" placeholder="<%= @restaurant.cuisine_id()%>">
+    </div>
+    <div class="form-group">
+      <label class="col-sm-1" for="budget_id">Budget:</label>
+      <input class="col-sm-4" type="text" name="budget_id" value="" placeholder="<%= @restaurant.budget_id()%>">
+    </div>
+    <button class="btn-sm btn-primary" type="submit">Update</button>
+  </form>
+</div>
+
+<div class="delete_restaurant">
+  <form action="/restaurant/<%= @restaurant.id() %>" method="post">
+    <input name="_method" type="hidden" value="delete">
+    <button class="btn-sm btn-danger" type="submit">Delete </button>
+  </form>
+</div>
