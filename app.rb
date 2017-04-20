@@ -43,6 +43,7 @@ get("/login") do
   erb(:login)
 end
 
+
 post('/users') do
   username = params.fetch('username')
   password = params.fetch('password').to_sha1()
@@ -80,6 +81,7 @@ get "/success", :auth => :user do
 end
 
 get("/admin") do
+  @restaurants = Restaurant.all()
   erb(:admin)
 end
 
@@ -93,7 +95,7 @@ post("/admin") do
   redirect('/admin')
 end
 
-get"/user", :auth => :user do
+get("/user", :auth => :user) do
   @cuisines = Cuisine.all()
   @districts = District.all()
   @budgets = Budget.all()
@@ -155,4 +157,41 @@ end
 
 post('/matching') do
   redirect('/matching')
+end
+
+get ('/restaurant/:id') do
+  @restaurant = Restaurant.find(params.fetch("id").to_i())
+end
+
+post ('/restaurant') do
+  id = params.fetch("id").to_i()
+  name = params.fetch("name")
+  address = params.fetch("address")
+  phone = params.fetch("phone").to_i()
+  district_id = params.fetch("district_id").to_i()
+  cuisine_id = params.fetch("cuisine_id").to_i()
+  budget_id = params.fetch("budget_id").to_i()
+  image = params.fetch("image")
+  restaurant = Restaurant.create({:name => name, :address => address, :phone => phone, :district_id => district_id, :cuisine_id => cuisine_id, :budget_id => budget_id, :image => image})
+  redirect("/restaurant/#{restaurant.id}")
+end
+
+patch("/restaurant/:id") do
+  id = params.fetch("id").to_i()
+  name = params.fetch("name")
+  address = params.fetch("address")
+  phone = params.fetch("phone").to_i()
+  district_id = params.fetch("district_id").to_i()
+  cuisine_id = params.fetch("cuisine_id").to_i()
+  budget_id = params.fetch("budget_id").to_i()
+  image = params.fetch("image")
+  @restaurant = Restaurant.find(params.fetch("id").to_i())
+  @restaurant.update({:name => name, :address => address, :phone => phone, :district_id => district_id, :cuisine_id => cuisine_id, :budget_id => budget_id, :image => image})
+  redirect("/restaurant/#{restaurant_id}")
+end
+
+delete("/restaurant/:id") do
+  @restaurant = Restaurant.find(params.fetch("id").to_i())
+  @restaurant.delete()
+  redirect("/admin")
 end

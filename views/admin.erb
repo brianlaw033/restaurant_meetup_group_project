@@ -9,4 +9,11 @@
     <input id="budget" name="budget" type="text">
 
     <button type="submit">Add Info</button>
-  </form>
+</form>
+
+<h4>Search Restaurant available</h4>
+
+<%@restaurants.each() do |restaurant|%>
+  <a href="/restaurant/<%=restaurant.id%>"><li><%=restaurant.name()%></li></a>
+  <img style="height: 100px" src="<%=restaurant.image%>">
+<%end%>

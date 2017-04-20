@@ -12,10 +12,10 @@ This project is completed by the team comprising of the following members (in al
 * Ken Ng
 
 This project was created by the team comprising of the following members before 20-April-2017 (before picked up by the above team):
-Alexandra Axenti
-Jeffrey Li
-Kevin Cho
-Steve Safarowic
+* Alexandra Axenti
+* Jeffrey Li
+* Kevin Cho
+* Steve Safarowic
 
 ## Development:
 Further development can be done based on the following steps inside Ruby environment:
@@ -30,9 +30,9 @@ We make use of github to collaborate together and have assigned Brian Law to be 
 * All members are equal contributors to the project;
 * All members clone the repository and setup their own branch to code
 * updates from members follow the steps after git commit on own branch:
-      git checkout master
-      git pull
-      git merge <branch>
-      git push
-      git checkout <branch>
-      git merge master
+<br/>  `git checkout master`
+<br/>  `git pull`
+<br/>  `git merge <branch>`
+<br/>  `git push`
+<br/>  `git checkout <branch>`
+<br/>  `git merge master`

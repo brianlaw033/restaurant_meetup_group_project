@@ -8,18 +8,20 @@
 
 <h4>likes <%=@current_user.cuisine.name%> and is based around <%=@current_user.district.name%></h4>
 
+<br>
+
   <div class="col-md-3">
   </div>
   <div class="col-md-3">
     <form action='/match_cross' method='post'>
       <input type='hidden' id='count' name='count' value="<%= @number%>">
-      <button type='submit' class="btn-danger btn-lg glyphicon glyphicon-thumbs-down" name='button'>Cross</button>
+      <button type='submit' class="btn-primary btn-lg" name='button'><i class="fa fa-thumbs-down" aria-hidden="true"> Cross</i></button>
     </form>
   </div>
   <div class="col-md-3">
     <form action='/match_tick' method='post'>
       <input type='hidden' id='count' name='count' value="<%= @number%>">
-      <button type='submit' class="btn-success btn-lg glyphicon glyphicon-thumbs-up" name='button'>Tick</button>
+      <button type='submit' class="btn-success btn-lg" name='button'><i class="fa fa-thumbs-up" aria-hidden="true"> Tick </i> </button>
     </form>
   </div>
   <div class="col-md-3">
