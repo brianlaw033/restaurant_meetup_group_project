@@ -14,9 +14,9 @@ class User < ActiveRecord::Base
   def matchmake()
     result = []
     if self.gender_preference != ""
-      users = User.where(:gender => self.gender_preference).where.not(id: self.id)
+      users = User.where(:gender => self.gender_preference).where.not(id: self.id).shuffle()
     else
-      users = User.where.not(id: self.id)
+      users = User.where.not(id: self.id).shuffle()
     end
     filtered_criteria = self.attributes.delete_if{|key,name| not CRITERIA.include?(key)}
     filtered_criteria.keep_if{|key,name| name != nil}
@@ -34,19 +34,30 @@ class User < ActiveRecord::Base
     result
   end
 
-  def user1_accept(user2_id)
-    match = Match.create({:user1_id => self.id, :user2_id => user2_id, :user1_like => true })
+  def accept(target)
+    scenario = Match.where(:user1 => target,:user2 => self)
+    if scenario != []
+      scenario.first.update({:user2_like => true})
+    elsif scenario == []
+      match = Match.create({:user1 => self, :user2 => target, :user1_like => true })
+    end
   end
 
-  def matchmake_invitations()
-    matches = Match.all()
-    invitations = []
-    matches.each() do |match|
-      if match.user2_id == self.id()
-        invitations.push(User.find(match.user1_id()))
+  def bingo()
+    result = []
+    scenario1 = Match.where(:user1 => self, :user2_like => true )
+    scenario2 = Match.where(:user2 => self, :user2_like => true )
+    if scenario1 != []
+      scenario1.each do |match|
+        result.push(match.user2)
       end
     end
-    invitations
+    if scenario2 != []
+      scenario2.each do |match|
+        result.push(match.user1)
+      end
+    end
+    result
   end
 
 end

@@ -43,6 +43,7 @@ get("/login") do
   erb(:login)
 end
 
+
 post('/users') do
   username = params.fetch('username')
   password = params.fetch('password').to_sha1()
@@ -80,6 +81,7 @@ get "/success", :auth => :user do
 end
 
 get("/admin") do
+  @restaurants = Restaurant.all()
   erb(:admin)
 end
 
@@ -130,6 +132,7 @@ post('/match_cross') do
 end
 
 post('/match_tick') do
+  @bingo = @user.bingo()
   @users = @user.matchmake()
   if params.fetch('count').to_i() < @users.length()-1
     @number = params.fetch('count').to_i() + 1
@@ -138,7 +141,7 @@ post('/match_tick') do
   end
   @current_user = @user.matchmake[@number]
   @user_to_be_added = @user.matchmake[@number-1]
-  @user.user1_accept(@user_to_be_added.id())
+  @user.accept(@user_to_be_added)
   erb(:match_making)
 end
 
@@ -154,4 +157,41 @@ end
 
 post('/matching') do
   redirect('/matching')
+end
+
+get ('/restaurant/:id') do
+  @restaurant = Restaurant.find(params.fetch("id").to_i())
+end
+
+post ('/restaurant') do
+  id = params.fetch("id").to_i()
+  name = params.fetch("name")
+  address = params.fetch("address")
+  phone = params.fetch("phone").to_i()
+  district_id = params.fetch("district_id").to_i()
+  cuisine_id = params.fetch("cuisine_id").to_i()
+  budget_id = params.fetch("budget_id").to_i()
+  image = params.fetch("image")
+  restaurant = Restaurant.create({:name => name, :address => address, :phone => phone, :district_id => district_id, :cuisine_id => cuisine_id, :budget_id => budget_id, :image => image})
+  redirect("/restaurant/#{restaurant.id}")
+end
+
+patch("/restaurant/:id") do
+  id = params.fetch("id").to_i()
+  name = params.fetch("name")
+  address = params.fetch("address")
+  phone = params.fetch("phone").to_i()
+  district_id = params.fetch("district_id").to_i()
+  cuisine_id = params.fetch("cuisine_id").to_i()
+  budget_id = params.fetch("budget_id").to_i()
+  image = params.fetch("image")
+  @restaurant = Restaurant.find(params.fetch("id").to_i())
+  @restaurant.update({:name => name, :address => address, :phone => phone, :district_id => district_id, :cuisine_id => cuisine_id, :budget_id => budget_id, :image => image})
+  redirect("/restaurant/#{restaurant_id}")
+end
+
+delete("/restaurant/:id") do
+  @restaurant = Restaurant.find(params.fetch("id").to_i())
+  @restaurant.delete()
+  redirect("/admin")
 end

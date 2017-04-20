@@ -1,7 +1,12 @@
+<h1><%=@users.length%> matches </h1>
+
+
 <img id="user_img" src="<%= @current_user.image() %>" alt=“member_photo”>
 
 <br>
-<h1><%= @current_user.name %></h1>
+
+
+<h1><%= @current_user.name %> (<%=@number.+1%>)</h1>
 
 <div class='row'>
 
