@@ -5,6 +5,7 @@
 
 <br>
 
+
 <h1><%= @current_user.name %> (<%=@number.+1%>)</h1>
 
 <div class='row'>
@@ -13,21 +14,32 @@
 
 <br>
 
-  <div class="col-md-3">
+  <div class="col-md-4">
   </div>
-  <div class="col-md-3">
+  <div id="div-button" class="col-md-2">
     <form action='/match_cross' method='post'>
       <input type='hidden' id='count' name='count' value="<%= @number%>">
-      <button type='submit' class="btn-primary btn-lg" name='button'><i class="fa fa-thumbs-down" aria-hidden="true"> Cross</i></button>
+      <button id="no" type='submit' class="btn-primary btn-lg" name='button'><i class="fa fa-thumbs-down" aria-hidden="true"> Cross</i></button>
     </form>
   </div>
-  <div class="col-md-3">
+  <div id="div-button" class="col-md-2">
     <form action='/match_tick' method='post'>
       <input type='hidden' id='count' name='count' value="<%= @number%>">
-      <button type='submit' class="btn-success btn-lg" name='button'><i class="fa fa-thumbs-up" aria-hidden="true"> Tick </i> </button>
+      <button id="yes" type='submit' class="btn-success btn-lg" name='button'><i class="fa fa-thumbs-up" aria-hidden="true"> Tick </i> </button>
     </form>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-4">
   </div>
 </div>
 <br>
+
+
+    <div id="droppable">
+      <p id="say-no">No</p>
+    </div>
+    <div id="droppable2">
+      <p id="say-yes">Yes</p>
+    </div>
+
+
+<script src="js/main.js"></script>
