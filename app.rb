@@ -130,6 +130,7 @@ post('/match_cross') do
 end
 
 post('/match_tick') do
+  @bingo = @user.bingo()
   @users = @user.matchmake()
   if params.fetch('count').to_i() < @users.length()-1
     @number = params.fetch('count').to_i() + 1
@@ -138,7 +139,7 @@ post('/match_tick') do
   end
   @current_user = @user.matchmake[@number]
   @user_to_be_added = @user.matchmake[@number-1]
-  @user.user1_accept(@user_to_be_added.id())
+  @user.accept(@user_to_be_added)
   erb(:match_making)
 end
 
