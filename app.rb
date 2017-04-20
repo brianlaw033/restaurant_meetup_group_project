@@ -97,6 +97,7 @@ get"/user", :auth => :user do
   @cuisines = Cuisine.all()
   @districts = District.all()
   @budgets = Budget.all()
+  @timeslots = Timeslot.all()
   erb(:user)
 end
 
@@ -104,7 +105,9 @@ patch("/user") do
   cuisine_id = params.fetch("cuisine_id")
   district_id = params.fetch("district_id")
   budget_id = params.fetch("budget_id")
-  @user.update({:cuisine_id => cuisine_id, :district_id => district_id, :budget_id => budget_id})
+  timeslot_id = params.fetch('timeslot_id')
+  gender_preference = params.fetch('gender_preference')
+  @user.update({:cuisine_id => cuisine_id, :district_id => district_id, :budget_id => budget_id, :timeslot_id => timeslot_id, :gender_preference => gender_preference})
   redirect('/match_making')
 end
 
