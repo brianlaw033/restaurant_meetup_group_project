@@ -26,7 +26,12 @@
                 </li>
                 <li>
                   <a href="#">About</a>
+                </li>
+                <%if @user!=nil%>
+                  <li>
+                    <a href="/bingo"><%=@user.bingo().count%></a>
                   </li>
+                <%end%>
                 <li style="margin:15px 0 0 10px">
                   <form action='/logout'>
                     <button class="btn btn-primary">Logout</button>
