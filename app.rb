@@ -93,7 +93,7 @@ post("/admin") do
   redirect('/admin')
 end
 
-get"/user", :auth => :user do
+get("/user", :auth => :user) do
   @cuisines = Cuisine.all()
   @districts = District.all()
   @budgets = Budget.all()
