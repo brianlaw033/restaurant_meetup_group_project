@@ -15,7 +15,7 @@ end
 register do
   def auth (type)
     condition do
-      redirect "/login" unless send("is_#{type}?")
+      redirect "/" unless send("is_#{type}?")
     end
   end
 end
@@ -90,8 +90,12 @@ get "/success", :auth => :user do
 end
 
 get("/admin") do
-  @restaurants = Restaurant.all().order('name')
-  erb(:admin)
+    if session[:id] != 1
+    redirect('/')
+    else
+    @restaurants = Restaurant.all().order('name')
+    erb(:admin)
+  end
 end
 
 post("/admin") do
@@ -184,7 +188,9 @@ end
 get ("/select_restaurant/:id") do
   matched_user = User.find(params.fetch("id").to_i())
   @match = @user.find_match(matched_user)
-  @restaurant = @match.matching_restaurants()
+  @restaurants = @match.matching_restaurants()
+  @choices = Choice.where(id: @match.id.to_i)
+  @messages = Message.where(id: @match.id.to_i)
   erb(:select_restaurant)
 end
 

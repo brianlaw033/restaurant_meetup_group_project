@@ -29,9 +29,11 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
               <ul class="nav navbar-nav navbar-right">
+                <%if @user!=nil && @user.id==1%>
                 <li>
                   <a href="/admin">Admin</a>
                 </li>
+                <%end%>
                 <li>
                   <a href="/about">About</a>
                 </li>
@@ -39,12 +41,16 @@
                   <li>
                     <a href="/bingo"><%=@user.bingo().count%></a>
                   </li>
-                <%end%>
                 <li style="margin:15px 0 0 10px">
                   <form action='/logout'>
                     <button class="btn btn-primary">Logout</button>
                   </form>
                 </li>
+                <%else%>
+                <li>
+                  <a style="width: 100px" href="/sign_up">Sign Up</a>
+                </li>
+                <%end%>
               </ul>
             </div>
         </div>
