@@ -113,6 +113,17 @@ get("/user", :auth => :user) do
 end
 
 patch("/user") do
+  name = params.fetch("name")
+  username = params.fetch("username")
+  password = params.fetch("password")
+  image = params.fetch("image")
+  gender = params.fetch("gender")
+  @user.update({:name => name, :username => username, :password => password, :image => image, :gender => gender})
+  @users = User.all()
+  redirect("/user")
+end
+
+patch("/user_preference") do
   cuisine_id = params.fetch("cuisine_id")
   district_id = params.fetch("district_id")
   budget_id = params.fetch("budget_id")
