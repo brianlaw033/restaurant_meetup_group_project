@@ -12,6 +12,8 @@ class Match < ActiveRecord::Base
     restaurants.each do |restaurant|
       restaurant_criteria = User.select_criteria_only(restaurant)
       if restaurant_criteria.include?()
+      end
+    end
 
   end
 
