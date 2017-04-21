@@ -195,13 +195,15 @@ get ("/select_restaurant/:id") do
 end
 
 get ('/restaurant/:id') do
-  @budget = Budget.find(params.fetch("id").to_i())
-  @cuisine = Cuisine.find(params.fetch("id").to_i())
-  @district = District.find(params.fetch("id").to_i())
+  id = params.fetch("id").to_i()
+  @restaurant = Restaurant.find(params.fetch("id").to_i())
+  @budget = Budget.find(@restaurant.budget_id)
+  @cuisine = Cuisine.find(@restaurant.cuisine_id)
+  @district = District.find(@restaurant.district_id)
   @districts = District.all()
   @cuisines = Cuisine.all()
   @budgets = Budget.all()
-  @restaurant = Restaurant.find(params.fetch("id").to_i())
+
   erb(:restaurant)
 end
 

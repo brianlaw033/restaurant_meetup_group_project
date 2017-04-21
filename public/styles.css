@@ -29,6 +29,7 @@ body {
   font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
   font-weight: bold;
   background-color: #ffffff;
+  align-items: center;
 }
 
 /* NAV BAR STYLING */
@@ -65,6 +66,11 @@ body {
   text-decoration: underline;
   border: none;
   color: black;
+}
+
+.btn-primary:hover {
+  background-color: rgb(242, 106, 127);
+  border-color: rgb(242, 106, 127);
 }
 
 .btn_signup {
@@ -244,11 +250,6 @@ input[type="password"] {
     text-align: center;
 }
 
-
-
-body {
-    align-items: center;
-}
 
 .container {
     margin-top: 50px;
