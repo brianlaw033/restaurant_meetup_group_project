@@ -36,7 +36,11 @@ end
 
 #index page links and buttons
 get "/" do
-  erb(:index)
+  if @user == nil
+    erb(:index)
+  else
+    redirect('/user')
+  end
 end
 
 get("/login") do
@@ -132,7 +136,6 @@ post('/match_cross') do
 end
 
 post('/match_tick') do
-  @bingo = @user.bingo()
   @users = @user.matchmake()
   if params.fetch('count').to_i() < @users.length()-1
     @number = params.fetch('count').to_i() + 1
@@ -150,13 +153,9 @@ get('/logout') do
   redirect('/')
 end
 
-get('/matching') do
-  @users = User.all()
-  erb(:matching)
-end
-
-post('/matching') do
-  redirect('/matching')
+get('/bingo') do
+  @matches = @user.bingo()
+  erb(:bingo)
 end
 
 get ('/restaurant/:id') do
