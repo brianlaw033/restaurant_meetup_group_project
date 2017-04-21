@@ -1,6 +1,6 @@
 require("bundler/setup")
 Bundler.require(:default)
-require('pry')
+
 require('rickshaw')
 require('rack')
 require "sinatra/reloader"
@@ -35,6 +35,11 @@ before do
 end
 
 #index page links and buttons
+
+get "/about" do
+  erb(:about)
+end
+
 get "/" do
   if @user == nil
     erb(:index)
@@ -170,7 +175,14 @@ get ("/select_restaurant/:id") do
 end
 
 get ('/restaurant/:id') do
+  @budget = Budget.find(params.fetch("id").to_i())
+  @cuisine = Cuisine.find(params.fetch("id").to_i())
+  @district = District.find(params.fetch("id").to_i())
+  @districts = District.all()
+  @cuisines = Cuisine.all()
+  @budgets = Budget.all()
   @restaurant = Restaurant.find(params.fetch("id").to_i())
+  erb(:restaurant)
 end
 
 post ('/restaurant') do
@@ -197,7 +209,7 @@ patch("/restaurant/:id") do
   image = params.fetch("image")
   @restaurant = Restaurant.find(params.fetch("id").to_i())
   @restaurant.update({:name => name, :address => address, :phone => phone, :district_id => district_id, :cuisine_id => cuisine_id, :budget_id => budget_id, :image => image})
-  redirect("/restaurant/#{restaurant_id}")
+  redirect("/restaurant/#{id}")
 end
 
 delete("/restaurant/:id") do
