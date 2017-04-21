@@ -159,7 +159,14 @@ post('/matching') do
 end
 
 get ('/restaurant/:id') do
+  @budget = Budget.find(params.fetch("id").to_i())
+  @cuisine = Cuisine.find(params.fetch("id").to_i())
+  @district = District.find(params.fetch("id").to_i())
+  @districts = District.all()
+  @cuisines = Cuisine.all()
+  @budgets = Budget.all()
   @restaurant = Restaurant.find(params.fetch("id").to_i())
+  erb(:restaurant)
 end
 
 post ('/restaurant') do
@@ -186,7 +193,7 @@ patch("/restaurant/:id") do
   image = params.fetch("image")
   @restaurant = Restaurant.find(params.fetch("id").to_i())
   @restaurant.update({:name => name, :address => address, :phone => phone, :district_id => district_id, :cuisine_id => cuisine_id, :budget_id => budget_id, :image => image})
-  redirect("/restaurant/#{restaurant_id}")
+  redirect("/restaurant/#{id}")
 end
 
 delete("/restaurant/:id") do
