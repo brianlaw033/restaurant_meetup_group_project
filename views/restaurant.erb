@@ -9,13 +9,11 @@
     <p>
       Budget:<%= @restaurant.budget.scale()%>
     </p>
-    </div>
 </div>
 
 <div class="update_restaurant">
   <form class="form-horizontal" id="update_restaurant_id" action="/restaurant/<%= @restaurant.id()%>" method="post">
     <input name="_method" value="patch" type="hidden">
-
     <div class="form-group">
       <label class="col-sm-1" for="name">Name:</label>
       <input class="col-sm-4" type="text" name="name" value="<%= @restaurant.name()%>" placeholder="<%= @restaurant.name()%>">
@@ -55,7 +53,6 @@
           <option value="<%= budget.id() %>"><%= budget.scale() %></option>
         <% end %>
       </select>
-
     </div>
     <button class="btn-sm btn-primary" type="submit">Update</button>
   </form>

@@ -30,7 +30,7 @@ end
 
 class District < ActiveRecord::Base
 list = [
-    "Central" , "Yuen Long" , "Kowloon City" , "Mongkok", "Tsim Sha Tsui"
+    "Central" , "Yuen Long" , "Kowloon City" , "Mongkok", "Tsim Sha Tsui", "Taikoo City", "Causeway Bay", "Aberdeen"
   ]
 
   list.each do |name|
@@ -111,7 +111,7 @@ end
 
 class User < ActiveRecord::Base
 list = [
-["admin","admin","40bd001563085fc35165329ea1ff5c5ecbdbbeef","","","","","","",""],
+["admin","admin","40bd001563085fc35165329ea1ff5c5ecbdbbeef","","","","http://www.brahmansamajofindia.org/2hIOZ.gif","","",""],
 ["ken","ken","40bd001563085fc35165329ea1ff5c5ecbdbbeef","3","4","5","http://www.officeexperience.in/wp-content/uploads/2017/01/ken-ng-accelerated-hong-kong.jpg","4","F","1"],
 ["Angelina","AJ","40bd001563085fc35165329ea1ff5c5ecbdbbeef","1","1","7","http://2.bp.blogspot.com/-oSwYod57Mq4/T2ouLEwOSRI/AAAAAAAABx8/L7LBVghhOAQ/s1600/AXCR000Z.jpg","4","F","2"],
 ["Julie","Joolie","40bd001563085fc35165329ea1ff5c5ecbdbbeef","1","1","7","https://pbs.twimg.com/profile_images/524639136724971520/AYTNP1C6.jpeg","4","F","2"],
