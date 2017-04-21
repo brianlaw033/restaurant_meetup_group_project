@@ -29,7 +29,6 @@ body {
   font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
   font-weight: bold;
   background-color: #ffffff;
-  align-items: center;
 }
 
 /* NAV BAR STYLING */
@@ -102,6 +101,12 @@ body {
     background-size: cover;
     background-image: url(/assets/food-summer-party-dinner.jpg);
     opacity: 0.8px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    position:fixed;
 }
 
 /* USER PAGE */
