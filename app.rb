@@ -146,30 +146,12 @@ end
 
 post('/match_cross') do
   redirect ("/match_making")
-  # @users = @user.matchmake()
-  # if params.fetch('count').to_i() < @users.length()-1
-  #   @number = params.fetch('count').to_i() + 1
-  # else
-  #   @number=0
-  # end
-  # @current_user = @user.matchmake[@number]
-  # erb(:match_making)
 end
 
 post('/match_tick') do
   user_to_add_id = Integer(params.fetch('user_to_add'))
   user_to_add = User.find(user_to_add_id)
   @user.accept(user_to_add)
-  # @users = @user.matchmake()
-  # if params.fetch('count').to_i() < @users.length()-1
-  #   @number = params.fetch('count').to_i() + 1
-  # else
-  #   @number=0
-  # end
-  # @current_user = @user.matchmake[@number]
-  # @user_to_be_added = @user.matchmake[@number-1]
-  # @user.accept(@user_to_be_added)
-  # erb(:match_making)
   redirect ("/match_making")
 end
 
