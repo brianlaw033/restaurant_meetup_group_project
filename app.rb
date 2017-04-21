@@ -57,7 +57,6 @@ post('/users') do
   username = params.fetch('username')
   password = params.fetch('password').to_sha1()
   @user = User.find_by(username: username, password: password)
-  # not yet complete
   if @user != nil
     session[:id] = @user.id
     redirect('/user')
@@ -84,15 +83,11 @@ post("/sign_up") do
     erb(:errors)
   end
 end
-#test
-get "/success", :auth => :user do
-  erb(:success)
-end
 
 get("/admin") do
-    if session[:id] != 1
+  if session[:id] != 1
     redirect('/')
-    else
+  else
     @restaurants = Restaurant.all().order('name')
     erb(:admin)
   end
@@ -190,7 +185,6 @@ get ('/restaurant/:id') do
   @districts = District.all()
   @cuisines = Cuisine.all()
   @budgets = Budget.all()
-
   erb(:restaurant)
 end
 
