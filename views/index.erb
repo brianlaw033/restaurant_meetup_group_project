@@ -1,21 +1,15 @@
-<div class="video-background">
-  <div class="video-foreground">
-    <iframe id="myVideo" width="1280" height="720" src="https://www.youtube.com/embed/RnkmlU9l_7Y?autoplay=1&rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<div class="img-background">
+  <div class="form_signup">
+
+    <% if @user==nil %>
+      <form class="form-group" id="login_form" action="/users" method="post">
+        <input type="text" name="username" id="username" placeholder="username"><br>
+        <input type="password" name="password" id="password" placeholder="password"><br><br>
+        <button type="submit" class="btn btn-primary" name="button">Login</button>
+      </form>
+      <button class="btn btn-info index" name="sign_up"><a href="/sign_up">Sign-up</a></button>
+    <% else %>
+      <button class="btn btn-primary index" name="logout"><a href="/logout">Logout</a></button>
+    <% end %>
   </div>
 </div>
-
-<% if @user==nil %>
-  <form class="form-group" id="login_form" action="/users" method="post">
-    <input type="text" name="username" id="username" placeholder="username"><br>
-    <input type="password" name="password" id="password" placeholder="password"><br><br>
-    <button type="submit" class="btn btn-primary" name="button">Login</button>
-  </form>
-  <button class="btn btn-info index" name="sign_up"><a href="/sign_up">Sign-up</a></button>
-<% else %>
-  <button class="btn btn-primary index" name="logout"><a href="/logout">Logout</a></button>
-<% end %>
-
-<script>
-var myVideo =  iframe.getElementById('myVideo');
-myVideo.mute();
-</script>
