@@ -173,6 +173,12 @@ body {
     border-radius: 0px;
 }
 
+.form-group > select, .form-group > label {
+  margin: 10px;
+}
+
+
+
 /**/
 
 
