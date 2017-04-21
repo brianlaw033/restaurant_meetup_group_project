@@ -277,3 +277,11 @@ body {
         display: none;
     }
 }
+
+/*by david*/
+.pull-right {
+    text-align: right !important;
+    float: right !important;
+    margin-right: 20px;
+}
+/*end by david*/
