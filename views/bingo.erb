@@ -1,14 +1,17 @@
 <div class='table-responsive'>
   <table class='table'>
-    <tbody>
+    <tbody >
       <%@matches.each do|match|%>
       <tr>
-        <div class='thumbnail container' style='width: 95%'>
+        <div class='thumbnail container' style='width: 95% ;margin: 15px'>
           <form action='/match/<%=match.id%>' method='post'>
             <input type="hidden" name="_method" value="delete">
             <a href='/select_restaurant/<%=match.id%>' class='table-row' style='color:black'>
-              <div class='col-xs-8'>
-                <h3><%=match.name%></h3><br />
+              <div class='col-xs-6'>
+                <img id="user_img" src="<%= match.image() %>" alt="member_photo">
+              </div>
+              <div class='col-xs-6'>
+                <h3><%=match.name%></h3>
                 <%if match.cuisine != nil%>
                   Cuisine: <%=match.cuisine.name%><br />
                 <%end%>
@@ -21,12 +24,9 @@
                 <%if match.gender_preference != nil%>
                   Gender Preference: <%=match.gender_preference%><br />
                 <%end%>
-                <button type='submit' class='btn-sm btn-danger'>
+                <button type='submit' class='btn-xs btn-danger'style='float:right;position:relative;top:-140px;right:-10px'>
                   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </button>
-              </div>
-              <div class='col-xs-4'>
-                <img id="user_img" src="<%= match.image() %>" alt=“member_photo”>
               </div>
             </a>
           </form>
