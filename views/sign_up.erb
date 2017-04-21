@@ -1,17 +1,15 @@
-<div class="video-background">
-  <div class="video-foreground">
-    <iframe width="1280" height="720" src="https://www.youtube.com/embed/RnkmlU9l_7Y?autoplay=1&rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<div class="img-background">
+  <div class="form_signup">
+    <form class="form-group" action="/sign_up" method="post">
+      <input type="text" name="username" id="username" placeholder="username" required><br>
+      <input type="text" name="name" id="name" placeholder="name" required><br>
+      <select id='gender' name='gender' type='text'>
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+      </select>
+      <input type="text" name="image" id="image" placeholder="photo URL" ><br>
+      <input type="password" name="password" id="password" placeholder="password" required><br><br>
+      <button type="submit" id="btn_signup" class="btn btn-lg" name="button">Sign-up</button>
+    </form>
   </div>
 </div>
-
-<form class="form-group" action="/sign_up" method="post">
-  <input type="text" name="username" id="username" placeholder="username" required><br>
-  <input type="text" name="name" id="name" placeholder="name" required><br>
-  <select id='gender' name='gender' type='text'>
-      <option value="M">Male</option>
-      <option value="F">Female</option>
-  </select>
-  <input type="text" name="image" id="image" placeholder="photo URL" ><br>
-  <input type="password" name="password" id="password" placeholder="password" required><br><br>
-  <button type="submit" id="btn_signup" class="btn btn-lg" name="button">Sign-up</button>
-</form>

@@ -1,3 +1,5 @@
+/* RESPONSIVE APPLICATION */
+
 @media only screen and (min-width: 1026px) {
     .drop-hover-dislike {
         background-image: url(https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQfMakbs-6VrgvK-8LaOPItgoXhq81pSjOJ-AFbosBx63oL9HBi);
@@ -21,6 +23,94 @@
         display: none;
     }
 }
+/* GENERAL - FONTS, BACKGROUND */
+
+body {
+  font-family: 'Palanquin Dark', "News Cycle", "Arial Narrow Bold", sans-serif;
+  font-weight: bold;
+  background-color: #ffba55;
+}
+
+/* NAV BAR STYLING */
+
+.navbar-default {
+  background-color: #F565b7;
+  margin-bottom: 0px;
+  border-color: #F565b7;
+}
+
+.navbar {
+  border-radius: 0px;
+  font-family: 'Palanquin Dark', "News Cycle", "Arial Narrow Bold", sans-serif;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus,
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+  background-color: #F565b7;
+  color: #ffffff;
+}
+
+#navbar-brand {
+    width: 300px
+}
+
+/* BUTTONS */
+
+.btn {
+  border-radius: 0px;
+}
+
+.btn-primary {
+  background-color: #F565b7;
+  text-decoration: underline;
+  border: none;
+  color: black;
+}
+
+.btn_signup {
+
+}
+
+.btn-lg {
+
+}
+
+#btn_signup, #btn_login {
+    background-color: rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+    color: white;
+    border: none;
+    font-size: 28px;
+}
+
+/* SIGN UP PAGE */
+
+.img-background {
+    height: 45em;
+    width: 100%;
+    background-size: cover;
+    background-image: url(/assets/food-summer-party-dinner.jpg);
+}
+
+/* USER PAGE */
+
+.user_block {
+  display: inline-block;
+  border: solid 4px black;
+  margin-top: 10px;
+}
+
+#user_img {
+    height: 170px;
+    border-radius: 0px;
+    padding: 20px;
+}
+
+
+
+
+/**/
+
 
 #droppable {
     position: fixed;
@@ -44,7 +134,6 @@
     position: fixed;
     top: 5em;
     right: 0.5em;
-    font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
     font-size: 38px;
     font-weight: bold;
     color: green;
@@ -58,11 +147,12 @@
     position: fixed;
     top: 5em;
     left: 0.5em;
-    font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
     font-size: 38px;
     font-weight: bold;
     color: red;
 }
+
+/* ABOUT PAGE */
 
 .about {
     height: 37em;
@@ -74,7 +164,6 @@
 #about {
     height: 1.5em;
     background-color: rgba(121, 121, 121, 0.6);
-    font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
     font-size: 30px;
     color: rgb(242, 242, 242);
     position: relative;
@@ -82,10 +171,9 @@
 }
 
 #about-left {
-    width: 10em;
+    width: 9.5em;
     border-radius: 0.5em;
     background-color: rgba(19, 163, 244, 0.3);
-    font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
     font-size: 17px;
     color: rgb(242, 242, 242);
     position: fixed;
@@ -94,10 +182,9 @@
 }
 
 #about-right {
-    width: 10em;
+    width: 9.5em;
     border-radius: 0.5em;
     background-color: rgba(19, 163, 244, 0.3);
-    font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
     font-size: 17px;
     color: rgb(242, 242, 242);
     position: fixed;
@@ -105,13 +192,11 @@
     right: 2em;
 }
 
+
+
 a {
     color: black;
     width: 60px;
-}
-
-#navbar-brand {
-    width: 250px
 }
 
 #login_form {
@@ -152,28 +237,7 @@ input[type="password"] {
     text-align: center;
 }
 
-#btn_signup, #btn_login {
-    background-color: rgba(0, 0, 0, 0.4);
-    text-decoration: none;
-    color: white;
-    border: none;
-    font-size: 28px;
-}
 
-#main_header {
-    color: white;
-    text-align: center;
-    margin-top: 0px;
-    padding: 40px 0 40px 0;
-    font-family: UnifrakturCook;
-    font-size: 60px;
-    background-color: rgba(0, 0, 0, .4)
-}
-
-#user_img {
-    height: 170px;
-    border-radius: 10px;
-}
 
 body {
     align-items: center;
@@ -195,85 +259,14 @@ body {
     box-sizing: border-box;
 }
 
-.video-background {
-    background: #000;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -99;
-}
-
-.video-foreground, .video-background iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
 
 #vidtop-content {
     top: 0;
     color: #fff;
 }
 
-.vid-info {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 33%;
-    background: rgba(0, 0, 0, 0.3);
-    color: #fff;
-    padding: 1rem;
-    font-family: Avenir, Helvetica, sans-serif;
-}
-
-.vid-info h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-top: 0;
-    line-height: 1.2;
-}
-
-.vid-info a {
-    display: block;
-    color: #fff;
-    text-decoration: none;
-    background: rgba(0, 0, 0, 0.5);
-    transition: .6s background;
-    border-bottom: none;
-    margin: 1rem auto;
-    text-align: center;
-}
-
-@media (min-aspect-ratio: 16/9) {
-    .video-foreground {
-        height: 300%;
-        top: -100%;
-    }
-}
-
-@media (max-aspect-ratio: 16/9) {
-    .video-foreground {
-        width: 300%;
-        left: -100%;
-    }
-}
-
-@media all and (max-width: 600px) {
-    .vid-info {
-        width: 50%;
-        padding: .5rem;
-    }
-    .vid-info h1 {
-        margin-bottom: .2rem;
-    }
-}
-
-@media all and (max-width: 500px) {
-    .vid-info .acronym {
-        display: none;
-    }
+.pull-right {
+    text-align: right !important;
+    float: right !important;
+    margin-right: 20px;
 }
