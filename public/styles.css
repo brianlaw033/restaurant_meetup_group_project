@@ -2,17 +2,18 @@
 
 @media only screen and (min-width: 1026px) {
     .drop-hover-dislike {
-        background-image: url(https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQfMakbs-6VrgvK-8LaOPItgoXhq81pSjOJ-AFbosBx63oL9HBi);
-        background-size: 29em;
+
         background-position: bottom;
         background-repeat: no-repeat;
     }
+
+
     .drop-hover-like {
-        background-image: url(https://www.toonpool.com/user/328/files/like_1686535.jpg);
-        background-size: 29em;
         background-position: bottom;
         background-repeat: no-repeat;
     }
+
+
 }
 
 @media only screen and (max-width: 1026px) {
@@ -23,6 +24,27 @@
         display: none;
     }
 }
+
+#droppable {
+  /*border: 1px solid red;*/
+    position: fixed;
+    top: 4em;
+    left: 0em;
+    width: 40%;
+    height: 38em;
+    z-index: -1
+}
+
+#droppable2 {
+  /*border: 1px solid green;*/
+    position: fixed;
+    top: 4em;
+    right: 0em;
+    width: 40%;
+    height: 38em;
+    z-index: -1
+}
+
 /* GENERAL - FONTS, BACKGROUND */
 
 body {
@@ -111,24 +133,6 @@ body {
 
 /**/
 
-
-#droppable {
-    position: fixed;
-    top: 4em;
-    left: 0em;
-    width: 35em;
-    height: 38em;
-    z-index: -5
-}
-
-#droppable2 {
-    position: fixed;
-    top: 4em;
-    right: 0em;
-    width: 35em;
-    height: 38em;
-    z-index: -5
-}
 
 #say-yes {
     position: fixed;

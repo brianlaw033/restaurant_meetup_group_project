@@ -30,15 +30,13 @@
   <h3> According to your preferences you should try: </h3>
   <ul>
   <%@restaurants.each() do |restaurant|%>
-    <div id="restaurant-tile" class="col-xs-12 col-sm-6">
-      <a href="/restaurant/<%=restaurant.id%>">
+    <div id="restaurant-tile" class="col-xs-6 col-sm-6">
       <div class="thumbnail">
         <img style="height: 80px" src="<%=restaurant.image%>">
         <div class="caption">
           <h5><%=restaurant.name()%></h5>
         </div>
       </div>
-    </a>
     </div>
   <%end%>
   </ul>

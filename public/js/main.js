@@ -8,11 +8,8 @@ $(function() {
     hoverClass: "drop-hover-dislike",
     drop: function( event, ui ) {
       $( this )
-        .addClass( "ui-state-highlight" )
-        .find( "h1" )
-          .html( "Get Lost!" );
-      $("#draggable").hide();
       setTimeout(function () {
+        console.log("nope");
         $( "#no" ).trigger( "click" );
       }, 200);
     }
@@ -21,11 +18,8 @@ $(function() {
     hoverClass: "drop-hover-like",
     drop: function( event, ui ) {
       $( this )
-        .addClass( "ui-state-highlight" )
-        .find( "h1" )
-          .html( "Let's tuck in!" );
-      $("#draggable").hide();
       setTimeout(function () {
+        console.log("yes");
         $( "#yes" ).trigger( "click" );
       }, 200);
     }
