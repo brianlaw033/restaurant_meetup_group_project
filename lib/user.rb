@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   belongs_to(:district)
   belongs_to(:budget)
   belongs_to(:timeslot)
+  has_many(:message_as_sent_by, :class_name => 'Message', :foreign_key => 'sent_by_id')
 
   has_many(:match_as_user1, :class_name => 'Match', :foreign_key => 'user1_id')
   has_many(:match_as_user2, :class_name => 'Match', :foreign_key => 'user2_id')

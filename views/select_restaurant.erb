@@ -40,14 +40,40 @@
 
 </div>
 
-<!-- below will be hidden
-
-above will be hidden -->
-
+<!-- below will be hidden -->
+<hr>
+<div class="row">
+<div class="col-sm-3">
+</div>
+<div id="scroll-bottom" class="col-xs-12 col-sm-6" style="height:170px; overflow-y:scroll ; padding-left: 100px;text-align: left ">
+  <%if @messages.any?%>
+    <%@messages.each() do |message|%>
+      <%if message.sent_by.id == @user.id %>
+        <span style="float:right"> <%=message.message%> - <span style="color:blue"><%=message.sent_by.name%></span></span><br>
+      <%else%>
+      <span style="color:red"><%=message.sent_by.name%></span> - <%=message.message%><br>
+      <%end%>
+    <%end%>
+  <%else%>
+  You have no messages - kick start the conversation below
+  <%end%>
+</div>
+<div class="col-sm-3">
+</div>
+<!-- above will be hidden -->
+</div>
+<div class="row">
+  <form action="/message/<%=@matched_user.id%>" method="post">
+      <input style="width:70%" style="margin-bottom:5px;" name="message">
+    <div class="submit-and-options">
+      <button class="btn btn-info">Send</button>
+    </div>
+  </form>
+</div>
 <hr>
 
 <% if @match.matching_restaurants.length>0%>
-  <h3> According to your preferences you should try: </h3>
+  <h3> According to your preferences you could try: </h3>
   <ul>
   <%@restaurants.each() do |restaurant|%>
     <div id="restaurant-tile" class="col-xs-6 col-sm-6">
@@ -61,3 +87,8 @@ above will be hidden -->
   <%end%>
   </ul>
 <%end%>
+
+<script>
+var messageBody = document.querySelector('#scroll-bottom');
+messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
+</script>
