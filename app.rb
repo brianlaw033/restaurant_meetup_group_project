@@ -35,6 +35,11 @@ before do
 end
 
 #index page links and buttons
+
+get "/about" do
+  erb(:about)
+end
+
 get "/" do
   if @user == nil
     erb(:index)
