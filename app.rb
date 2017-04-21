@@ -90,7 +90,7 @@ get "/success", :auth => :user do
 end
 
 get("/admin") do
-  @restaurants = Restaurant.all()
+  @restaurants = Restaurant.all().order('name')
   erb(:admin)
 end
 

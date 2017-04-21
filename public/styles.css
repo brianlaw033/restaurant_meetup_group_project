@@ -105,6 +105,11 @@
     right: 2em;
 }
 
+#restaurant-tile {
+  height: 160px;
+  margin-bottom: 2px"
+}
+
 a {
     color: black;
     width: 60px;
