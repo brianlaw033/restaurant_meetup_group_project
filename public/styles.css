@@ -34,7 +34,46 @@
   color: red;
 }
 
+.about {
+  height: 37em;
+  width: 100%;
+  background-size: cover;
+  background-image: url(https://images.pexels.com/photos/247942/pexels-photo-247942.jpeg?w=940&h=650&auto=compress&cs=tinysrgb);
+}
 
+#about {
+  height: 1.5em;
+  background-color: rgba(121, 121, 121, 0.6);
+  font-family: "News Cycle","Arial Narrow Bold",sans-serif;
+  font-size: 30px;
+  color:rgb(242, 242, 242);
+  position: relative;
+  top: 2.5em;
+}
+
+#about-left {
+  width: 10em;
+  border-radius: 0.5em;
+  background-color: rgba(19, 163, 244, 0.3);
+  font-family: "News Cycle","Arial Narrow Bold",sans-serif;
+  font-size: 17px;
+  color:rgb(242, 242, 242);
+  position: fixed;
+  top: 28em;
+  left: 2em;
+}
+
+#about-right {
+  width: 10em;
+  border-radius: 0.5em;
+  background-color: rgba(19, 163, 244, 0.3);
+  font-family: "News Cycle","Arial Narrow Bold",sans-serif;
+  font-size: 17px;
+  color:rgb(242, 242, 242);
+  position: fixed;
+  top: 28em;
+  right: 2em;
+}
 
 a {
   color: black;
