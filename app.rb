@@ -145,27 +145,14 @@ get('/match_making') do
 end
 
 post('/match_cross') do
-  @users = @user.matchmake()
-  if params.fetch('count').to_i() < @users.length()-1
-    @number = params.fetch('count').to_i() + 1
-  else
-    @number=0
-  end
-  @current_user = @user.matchmake[@number]
-  erb(:match_making)
+  redirect ("/match_making")
 end
 
 post('/match_tick') do
-  @users = @user.matchmake()
-  if params.fetch('count').to_i() < @users.length()-1
-    @number = params.fetch('count').to_i() + 1
-  else
-    @number=0
-  end
-  @current_user = @user.matchmake[@number]
-  @user_to_be_added = @user.matchmake[@number-1]
-  @user.accept(@user_to_be_added)
-  erb(:match_making)
+  user_to_add_id = Integer(params.fetch('user_to_add'))
+  user_to_add = User.find(user_to_add_id)
+  @user.accept(user_to_add)
+  redirect ("/match_making")
 end
 
 get('/logout') do
@@ -195,13 +182,15 @@ get ("/select_restaurant/:id") do
 end
 
 get ('/restaurant/:id') do
-  @budget = Budget.find(params.fetch("id").to_i())
-  @cuisine = Cuisine.find(params.fetch("id").to_i())
-  @district = District.find(params.fetch("id").to_i())
+  id = params.fetch("id").to_i()
+  @restaurant = Restaurant.find(params.fetch("id").to_i())
+  @budget = Budget.find(@restaurant.budget_id)
+  @cuisine = Cuisine.find(@restaurant.cuisine_id)
+  @district = District.find(@restaurant.district_id)
   @districts = District.all()
   @cuisines = Cuisine.all()
   @budgets = Budget.all()
-  @restaurant = Restaurant.find(params.fetch("id").to_i())
+
   erb(:restaurant)
 end
 
