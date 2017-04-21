@@ -1,4 +1,6 @@
 class Match < ActiveRecord::Base
+  has_many(:messages)
+  belongs_to(:choices)
   belongs_to(:user1, :class_name => 'User')
   belongs_to(:user2, :class_name => 'User')
   belongs_to(:restaurant)
@@ -12,10 +14,14 @@ class Match < ActiveRecord::Base
     restaurants.each do |restaurant|
       restaurant_criteria = User.select_criteria_only(restaurant)
       restaurant_criteria.keep_if{|key,name| combined_criteria[key]}
-      if restaurant_criteria == combined_criteria
-        result.push(restaurant)
-      end
+        if restaurant_criteria == combined_criteria
+          result.push(restaurant)
+        end
     end
-    result.first(5)
+    result = result.first(5)
+    if result.length == 0
+      result = Restaurant.where(user1_criteria.first[0] => user1_criteria.first[1]).shuffle.first(5)
+    end
+    result
+    end
   end
-end

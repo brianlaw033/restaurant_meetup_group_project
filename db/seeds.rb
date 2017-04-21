@@ -40,17 +40,17 @@ end
 
 class Match < ActiveRecord::Base
 list = [
-    [ "1", "2", "true", "false", ""  ],
-    [ "1", "3", "true", "true", ""  ],
-    [ "2", "1", "true", "false", ""  ],
-    [ "2", "4", "true", "true", ""  ],
-    [ "3", "1", "true", "false", ""  ],
-    [ "3", "2", "true", "true", ""  ],
-    [ "4", "3", "true", "false", ""  ]
+    [ "1", "2", "true", "false"  ],
+    [ "1", "3", "true", "true"  ],
+    [ "2", "1", "true", "false"  ],
+    [ "2", "4", "true", "true"  ],
+    [ "3", "1", "true", "false"  ],
+    [ "3", "2", "true", "true"  ],
+    [ "4", "3", "true", "false"  ]
   ]
 
-  list.each do |user1_id, user2_id, user1_like, user2_like, restaurant_id|
-    Match.create( user1_id: user1_id , user2_id: user2_id , user1_like: user1_like, user2_like: user2_like, restaurant_id: restaurant_id )
+  list.each do |user1_id, user2_id, user1_like, user2_like|
+    Match.create( user1_id: user1_id , user2_id: user2_id , user1_like: user1_like, user2_like: user2_like)
   end
 end
 
@@ -111,6 +111,7 @@ end
 
 class User < ActiveRecord::Base
 list = [
+["admin","admin","40bd001563085fc35165329ea1ff5c5ecbdbbeef","","","","","","",""],
 ["ken","ken","40bd001563085fc35165329ea1ff5c5ecbdbbeef","3","4","5","http://www.officeexperience.in/wp-content/uploads/2017/01/ken-ng-accelerated-hong-kong.jpg","4","F","1"],
 ["Angelina","AJ","40bd001563085fc35165329ea1ff5c5ecbdbbeef","1","1","7","http://2.bp.blogspot.com/-oSwYod57Mq4/T2ouLEwOSRI/AAAAAAAABx8/L7LBVghhOAQ/s1600/AXCR000Z.jpg","4","F","2"],
 ["Julie","Joolie","40bd001563085fc35165329ea1ff5c5ecbdbbeef","1","1","7","https://pbs.twimg.com/profile_images/524639136724971520/AYTNP1C6.jpeg","4","F","2"],

@@ -26,27 +26,31 @@
 /* GENERAL - FONTS, BACKGROUND */
 
 body {
-  font-family: 'Palanquin Dark', "News Cycle", "Arial Narrow Bold", sans-serif;
+  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
   font-weight: bold;
+<<<<<<< HEAD
   background-color: white;
+=======
+  background-color: #ffffff;
+>>>>>>> d5500dcd71adf9caa1adf3ab961a06062a2e9410
 }
 
 /* NAV BAR STYLING */
 
 .navbar-default {
-  background-color: #F565b7;
+  background-color: rgb(242, 106, 127);
   margin-bottom: 0px;
-  border-color: #F565b7;
+  border-color: rgb(242, 106, 127);
 }
 
 .navbar {
   border-radius: 0px;
-  font-family: 'Palanquin Dark', "News Cycle", "Arial Narrow Bold", sans-serif;
+  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
 }
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
-  background-color: #F565b7;
+  background-color: rgb(242, 106, 127);
   color: #ffffff;
 }
 
@@ -61,7 +65,7 @@ body {
 }
 
 .btn-primary {
-  background-color: #F565b7;
+  background-color: rgb(242, 106, 127);
   text-decoration: underline;
   border: none;
   color: black;
@@ -83,6 +87,10 @@ body {
     font-size: 28px;
 }
 
+#div-button {
+    margin-bottom: 5px;
+}
+
 /* SIGN UP PAGE */
 
 .img-background {
@@ -91,7 +99,7 @@ body {
     background-color: white;
     background-size: cover;
     background-image: url(/assets/food-summer-party-dinner.jpg);
-    -webkit-filter: blur;
+    opacity: 0.8px;
 }
 
 /* USER PAGE */
@@ -141,9 +149,7 @@ body {
     color: green;
 }
 
-#div-button {
-    margin-bottom: 5px;
-}
+
 
 #say-no {
     position: fixed;
@@ -195,6 +201,10 @@ body {
 }
 
 
+#restaurant-tile {
+  height: 160px;
+  margin-bottom: 2px
+}
 
 a {
     color: black;

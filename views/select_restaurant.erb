@@ -1,3 +1,45 @@
-<%@restaurants.each do |restaurant|%>
-  <%=restaurant.name%><br />
+<!-- matched_user = User.find(params.fetch("id").to_i())
+@match = @user.find_match(matched_user)
+@restaurant = @match.matching_restaurants()
+@choices = Choice.find(@match.id)
+@messages = Message.find(@match.id) -->
+<div class="row">
+
+<div class="col-xs-2">
+</div>
+<div class="col-xs-4">
+  <img id="user_img" src="<%= @match.user1.image() %>" alt=“member_photo”>
+  <h3>Your preferences </h3>
+  <p><%=@match.user1.cuisine.name%> restaurant near <%=@match.user1.district.name%></p>
+  <p>Looking for a meal around $<%=@match.user1.budget.scale%></p>
+</div>
+<div class="col-xs-4">
+  <img id="user_img" src="<%= @match.user2.image() %>" alt=“member_photo”>
+  <h3><%=@match.user2.name%>'s preferences </h3>
+  <p><%=@match.user2.cuisine.name%> restaurant near <%=@match.user2.district.name%></p>
+  <p>Looking for a meal around $<%=@match.user2.budget.scale%></p>
+</div>
+<div class="col-xs-2">
+</div>
+
+</div>
+
+<hr>
+
+<% if @match.matching_restaurants.length>0%>
+  <h3> According to your preferences you should try: </h3>
+  <ul>
+  <%@restaurants.each() do |restaurant|%>
+    <div id="restaurant-tile" class="col-xs-12 col-sm-6">
+      <a href="/restaurant/<%=restaurant.id%>">
+      <div class="thumbnail">
+        <img style="height: 80px" src="<%=restaurant.image%>">
+        <div class="caption">
+          <h5><%=restaurant.name()%></h5>
+        </div>
+      </div>
+    </a>
+    </div>
+  <%end%>
+  </ul>
 <%end%>

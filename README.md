@@ -36,3 +36,6 @@ We make use of github to collaborate together and have assigned Brian Law to be 
 <br/>  `git push`
 <br/>  `git checkout <branch>`
 <br/>  `git merge master`
+
+## Disclaimer:
+All pictures in our seed database are captured from public sources and all names of our seeded users are fictitious. 

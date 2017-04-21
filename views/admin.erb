@@ -1,19 +1,30 @@
 <form action="/admin" method="post">
-    <label for="cuisine">cuisine:</label>
-    <input id="cuisine" name="cuisine" type="text">
-
-    <label for="district">district:</label>
-    <input id="district" name="district" type="text">
-
-    <label for="budget">budget:</label>
-    <input id="budget" name="budget" type="text">
-
+    <div class="col-xs-12 col-sm-6">
+        <label for="cuisine">cuisine:</label>
+        <input id="cuisine" name="cuisine" type="text">
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        <label for="district">district:</label>
+        <input id="district" name="district" type="text">
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        <label for="budget">budget:</label>
+        <input id="budget" name="budget" type="text">
+    </div>
     <button type="submit">Add Info</button>
 </form>
 
 <h4>Search Restaurant available</h4>
 
 <%@restaurants.each() do |restaurant|%>
-  <a href="/restaurant/<%=restaurant.id%>"><li><%=restaurant.name()%></li></a>
-  <img style="height: 100px" src="<%=restaurant.image%>">
+<div id="restaurant-tile" class="col-sm-6 col-md-2">
+    <a href="/restaurant/<%=restaurant.id%>">
+        <div class="thumbnail">
+            <img style="height: 80px" src="<%=restaurant.image%>">
+            <div class="caption">
+                <h5><%=restaurant.name()%></h5>
+            </div>
+        </div>
+    </a>
+</div>
 <%end%>

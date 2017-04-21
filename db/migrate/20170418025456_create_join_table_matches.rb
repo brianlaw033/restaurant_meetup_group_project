@@ -5,7 +5,6 @@ class CreateJoinTableMatches < ActiveRecord::Migration
       t.column(:user2_id, :integer)
       t.column(:user1_like, :boolean)
       t.column(:user2_like, :boolean)
-      t.column(:restaurant_id, :integer)
       t.timestamps()
     end
   end
