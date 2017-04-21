@@ -5,24 +5,44 @@
 @messages = Message.find(@match.id) -->
 <div class="row">
 
-  <div class="col-xs-2">
-  </div>
-  <div class="col-xs-4">
-    <img id="user_img" src="<%= @match.user1.image() %>" alt=“member_photo”>
-    <h3>Your preferences </h3>
-    <p><%=@match.user1.cuisine.name%> restaurant near <%=@match.user1.district.name%></p>
-    <p>Looking for a meal around $<%=@match.user1.budget.scale%></p>
-  </div>
-  <div class="col-xs-4">
-    <img id="user_img" src="<%= @match.user2.image() %>" alt=“member_photo”>
-    <h3><%=@match.user2.name%>'s preferences </h3>
-    <p><%=@match.user2.cuisine.name%> restaurant near <%=@match.user2.district.name%></p>
-    <p>Looking for a meal around $<%=@match.user2.budget.scale%></p>
-  </div>
-  <div class="col-xs-2">
-  </div>
+<div class="col-xs-2">
+</div>
+<div class="col-xs-4">
+  <img id="user_img" src="<%= @match.user1.image() %>" alt=“member_photo”>
+  <h3>Your preferences </h3>
+  <p>
+  <% if @match.user1.cuisine!=nil %>
+    <%=@match.user1.cuisine.name%>
+  <%else%>
+    Any
+  <%end%>
+  restaurant
+  <% if @match.user1.district!=nil %>
+  near <%=@match.user1.district.name%>
+  <%end%>
+  </p>
+  <% if @match.user1.budget!=nil %>
+  <p>Looking for a meal around $
+      <%=@match.user1.budget.scale%>
+    <%else%>
+    Any Price
+    <%end%>
+  </p>
+</div>
+<div class="col-xs-4">
+  <img id="user_img" src="<%= @match.user2.image() %>" alt=“member_photo”>
+  <h3><%=@match.user2.name%>'s preferences </h3>
+  <p><%=@match.user2.cuisine.name%> restaurant near <%=@match.user2.district.name%></p>
+  <p>Looking for a meal around $<%=@match.user2.budget.scale%></p>
+</div>
+<div class="col-xs-2">
+</div>
 
 </div>
+
+<!-- below will be hidden
+
+above will be hidden -->
 
 <hr>
 
