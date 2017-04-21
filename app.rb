@@ -184,7 +184,7 @@ end
 get ("/select_restaurant/:id") do
   matched_user = User.find(params.fetch("id").to_i())
   @match = @user.find_match(matched_user)
-  @restaurant = @match.matching_restaurants()
+  @restaurants = @match.matching_restaurants()
   erb(:select_restaurant)
 end
 

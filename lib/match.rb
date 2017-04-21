@@ -10,7 +10,7 @@ class Match < ActiveRecord::Base
     user1_criteria = User.select_criteria_only(self.user1)
     user2_criteria = User.select_criteria_only(self.user2)
     combined_criteria = user1_criteria.merge(user2_criteria)
-    restaurants = Restaurant.all()
+    restaurants = Restaurant.all().shuffle()
     restaurants.each do |restaurant|
       restaurant_criteria = User.select_criteria_only(restaurant)
       restaurant_criteria.keep_if{|key,name| combined_criteria[key]}
@@ -18,6 +18,6 @@ class Match < ActiveRecord::Base
         result.push(restaurant)
       end
     end
-    result
+    result.first(5)
   end
 end
