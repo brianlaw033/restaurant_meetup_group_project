@@ -82,7 +82,7 @@
 }
 
 #about-left {
-    width: 10em;
+    width: 9.5em;
     border-radius: 0.5em;
     background-color: rgba(19, 163, 244, 0.3);
     font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
@@ -94,7 +94,7 @@
 }
 
 #about-right {
-    width: 10em;
+    width: 9.5em;
     border-radius: 0.5em;
     background-color: rgba(19, 163, 244, 0.3);
     font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
