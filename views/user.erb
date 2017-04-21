@@ -1,6 +1,12 @@
-  <img id="user_img" src="<%= @user.image() %>" alt=“member_photo”><br />
-  <%= @user.name() %>
-  <hr>
+<div class="user_block">
+  <div class="user_img">
+    <img id="user_img" src="<%= @user.image() %>" alt=“member_photo”>
+  </div>
+  <div class="user_name">
+    <%= @user.name() %>
+  </div>
+</div>
+
 <!-- update profile -->
 
 <div class="update_user">
@@ -8,25 +14,25 @@
     <input name="_method" value="patch" type="hidden">
 
     <div class="form-group">
-      <label class="col-sm-1" for="name">Name:</label>
-      <input class="col-sm-4" type="text" name="name" value="<%= @user.name()%>" placeholder="<%= @user.name()%>">
+      <label class="col-xs-1" for="name">Name:</label>
+      <input class="col-xs-4" type="text" name="name" value="<%= @user.name()%>" placeholder="<%= @user.name()%>">
     </div>
     <div class="form-group">
-      <label class="col-sm-1" for="username">Username:</label>
-      <input class="col-sm-4" type="text" name="username" value="<%= @user.username()%>" placeholder="<%= @user.username()%>">
+      <label class="col-xs-1" for="username">Username:</label>
+      <input class="col-xs-4" type="text" name="username" value="<%= @user.username()%>" placeholder="<%= @user.username()%>">
     </div>
     <div class="form-group">
-      <label class="col-sm-1" for="password">Password:</label>
-      <input class="col-sm-4" type="text" name="password" value="<%= @user.password()%>" placeholder="<%= @user.password()%>">
+      <label class="col-xs-1" for="password">Password:</label>
+      <input class="col-xs-4" type="text" name="password" value="<%= @user.password()%>" placeholder="<%= @user.password()%>">
     </div>
     <div class="form-group">
       <label class="col-sm-1" for="image">Image URL:</label>
-      <input class="col-sm-4" type="text" name="image" value="<%= @user.image()%>" placeholder="<%= @user.image()%>">
+      <input class="col-xs-4" type="text" name="image" value="<%= @user.image()%>" placeholder="<%= @user.image()%>">
     </div>
 
     <div class="form-group">
-      <label class="col-sm-1" for="gender">Gender:</label>
-      <select class="col-sm-4" name="gender" id="gender">
+      <label class="col-xs-1" for="gender">Gender:</label>
+      <select class="col-xs-4" name="gender" id="gender">
         <option value="F">F</option>
         <option value="M">M</option>
       </select>
