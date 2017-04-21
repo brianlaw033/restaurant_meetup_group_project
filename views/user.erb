@@ -1,87 +1,87 @@
-  <img id="user_img" src="<%= @user.image() %>" alt=“member_photo”><br />
-  <%= @user.name() %>
-  <hr>
+<img id="user_img" src="<%= @user.image() %>" alt=“member_photo”><br/>
+<%= @user.name() %>
+<hr>
 <!-- update profile -->
 
 <div class="update_user">
-  <form class="form-horizontal" id="update_user_id" action="/user" method="post">
-    <input name="_method" value="patch" type="hidden">
+    <form class="form-horizontal" id="update_user_id" action="/user" method="post">
+        <input name="_method" value="patch" type="hidden">
 
-    <div class="form-group">
-      <label class="col-sm-1" for="name">Name:</label>
-      <input class="col-sm-4" type="text" name="name" value="<%= @user.name()%>" placeholder="<%= @user.name()%>">
-    </div>
-    <div class="form-group">
-      <label class="col-sm-1" for="username">Username:</label>
-      <input class="col-sm-4" type="text" name="username" value="<%= @user.username()%>" placeholder="<%= @user.username()%>">
-    </div>
-    <div class="form-group">
-      <label class="col-sm-1" for="password">Password:</label>
-      <input class="col-sm-4" type="text" name="password" value="<%= @user.password()%>" placeholder="<%= @user.password()%>">
-    </div>
-    <div class="form-group">
-      <label class="col-sm-1" for="image">Image URL:</label>
-      <input class="col-sm-4" type="text" name="image" value="<%= @user.image()%>" placeholder="<%= @user.image()%>">
-    </div>
+        <div class="form-group">
+            <label class="col-sm-1" for="name">Name:</label>
+            <input class="col-sm-4" type="text" name="name" value="<%= @user.name()%>" placeholder="<%= @user.name()%>">
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1" for="username">Username:</label>
+            <input class="col-sm-4" type="text" name="username" value="<%= @user.username()%>" placeholder="<%= @user.username()%>">
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1" for="password">Password:</label>
+            <input class="col-sm-4" type="text" name="password" value="<%= @user.password()%>" placeholder="<%= @user.password()%>">
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1" for="image">Image URL:</label>
+            <input class="col-sm-4" type="text" name="image" value="<%= @user.image()%>" placeholder="<%= @user.image()%>">
+        </div>
 
-    <div class="form-group">
-      <label class="col-sm-1" for="gender">Gender:</label>
-      <select class="col-sm-4" name="gender" id="gender">
-        <option value="F">F</option>
-        <option value="M">M</option>
-      </select>
-    </div>
+        <div class="form-group">
+            <label class="col-sm-1" for="gender">Gender:</label>
+            <select class="col-sm-4" name="gender" id="gender">
+                <option value="F">F</option>
+                <option value="M">M</option>
+            </select>
+        </div>
 
-    <button class="btn-sm btn-primary" type="submit">Update</button>
-  </form>
+        <button class="btn-sm btn-primary" type="submit">Update</button>
+    </form>
 </div>
 
 <div class="delete_user">
-  <form action="/user/<%= @user.id() %>" method="post">
-    <input name="_method" type="hidden" value="delete">
-    <button class="btn-sm btn-danger" type="submit">Delete </button>
-  </form>
+    <form action="/user/<%= @user.id() %>" method="post">
+        <input name="_method" type="hidden" value="delete">
+        <button class="btn-sm btn-danger" type="submit">Delete
+        </button>
+    </form>
 </div>
-
 
 <!-- search settings -->
 <div class="update_preference_matching">
-  <form class='form-group'action="/user_preference" method="post">
-    <input name="_method" value="patch" type="hidden">
-    <label for="gender_preference">Gender</label>
-    <select name="gender_preference" id="gender_preference">
-      <option value="">Any</option>
-      <option value="M">Male</option>
-      <option value="F">Female</option>
-    </select><br />
-    <label for="cuisine_id">Cuisine</label>
-    <select name="cuisine_id" id="cuisine_id">
-      <option value="">Any</option>
-      <% @cuisines.each() do |cuisine| %>
-        <option value="<%= cuisine.id() %>"><%= cuisine.name() %></option>
-      <% end %>
-    </select><br />
-    <label for="district_id">District</label>
-    <select name="district_id" id="district_id">
-      <option value="">Any</option>
-      <% @districts.each() do |district| %>
-        <option value="<%= district.id() %>"><%= district.name() %></option>
-      <% end %>
-    </select><br />
-    <label for="budget_id">Budget</label>
-    <select name="budget_id" id="budget_id">
-      <option value="">Any</option>
-      <% @budgets.each() do |budget| %>
-        <option value="<%= budget.id() %>"><%= budget.scale() %></option>
-      <% end %>
-    </select><br />
-    <label for="timeslot_id">Time</label>
-    <select name="timeslot_id" id="timeslot_id">
-      <option value="">Any</option>
-      <% @timeslots.each() do |timeslot| %>
-        <option value="<%= timeslot.id() %>"><%= timeslot.time %></option>
-      <% end %>
-    </select><br />
-    <button type="submit" class="btn">Find Match!</button>
-  </form>
+    <form class='form-group' action="/user_preference" method="post">
+        <input name="_method" value="patch" type="hidden">
+        <label for="gender_preference">Gender</label>
+        <select name="gender_preference" id="gender_preference">
+            <option value="">Any</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select><br/>
+        <label for="cuisine_id">Cuisine</label>
+        <select name="cuisine_id" id="cuisine_id">
+            <option value="">Any</option>
+            <% @cuisines.each() do |cuisine| %>
+            <option value="<%= cuisine.id() %>"><%= cuisine.name() %></option>
+            <% end %>
+        </select><br/>
+        <label for="district_id">District</label>
+        <select name="district_id" id="district_id">
+            <option value="">Any</option>
+            <% @districts.each() do |district| %>
+            <option value="<%= district.id() %>"><%= district.name() %></option>
+            <% end %>
+        </select><br/>
+        <label for="budget_id">Budget</label>
+        <select name="budget_id" id="budget_id">
+            <option value="">Any</option>
+            <% @budgets.each() do |budget| %>
+            <option value="<%= budget.id() %>"><%= budget.scale() %></option>
+            <% end %>
+        </select><br/>
+        <label for="timeslot_id">Time</label>
+        <select name="timeslot_id" id="timeslot_id">
+            <option value="">Any</option>
+            <% @timeslots.each() do |timeslot| %>
+            <option value="<%= timeslot.id() %>"><%= timeslot.time %></option>
+            <% end %>
+        </select><br/>
+        <button type="submit" class="btn">Find Match!</button>
+    </form>
 </div>
