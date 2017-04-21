@@ -26,27 +26,27 @@
 /* GENERAL - FONTS, BACKGROUND */
 
 body {
-  font-family: 'Palanquin Dark', "News Cycle", "Arial Narrow Bold", sans-serif;
+  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
   font-weight: bold;
-  background-color: #ffba55;
+  background-color: #ffffff;
 }
 
 /* NAV BAR STYLING */
 
 .navbar-default {
-  background-color: #F565b7;
+  background-color: rgb(242, 106, 127);
   margin-bottom: 0px;
-  border-color: #F565b7;
+  border-color: rgb(242, 106, 127);
 }
 
 .navbar {
   border-radius: 0px;
-  font-family: 'Palanquin Dark', "News Cycle", "Arial Narrow Bold", sans-serif;
+  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
 }
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
-  background-color: #F565b7;
+  background-color: rgb(242, 106, 127);
   color: #ffffff;
 }
 
@@ -61,7 +61,7 @@ body {
 }
 
 .btn-primary {
-  background-color: #F565b7;
+  background-color: rgb(242, 106, 127);
   text-decoration: underline;
   border: none;
   color: black;
@@ -83,6 +83,10 @@ body {
     font-size: 28px;
 }
 
+#div-button {
+    margin-bottom: 5px;
+}
+
 /* SIGN UP PAGE */
 
 .img-background {
@@ -90,6 +94,7 @@ body {
     width: 100%;
     background-size: cover;
     background-image: url(/assets/food-summer-party-dinner.jpg);
+    opacity: 0.8px;
 }
 
 /* USER PAGE */
@@ -139,9 +144,7 @@ body {
     color: green;
 }
 
-#div-button {
-    margin-bottom: 5px;
-}
+
 
 #say-no {
     position: fixed;
@@ -195,7 +198,7 @@ body {
 
 #restaurant-tile {
   height: 160px;
-  margin-bottom: 2px"
+  margin-bottom: 2px
 }
 
 a {
