@@ -11,10 +11,11 @@ class Match < ActiveRecord::Base
     restaurants = Restaurant.all()
     restaurants.each do |restaurant|
       restaurant_criteria = User.select_criteria_only(restaurant)
-      if restaurant_criteria.include?()
+      restaurant_criteria.keep_if{|key,name| combined_criteria[key]}
+      if restaurant_criteria == combined_criteria
+        result.push(restaurant)
       end
     end
-
+    result
   end
-
 end

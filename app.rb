@@ -164,14 +164,17 @@ get('/bingo') do
 end
 
 delete("/match/:id") do
-  @match = Match.find(params.fetch("id").to_i())
-  @match.delete()
+  matched_user = User.find(params.fetch("id").to_i())
+  match = @user.find_match(matched_user)
+  match.delete()
   redirect("/bingo")
 end
 
 get ("/select_restaurant/:id") do
-  @match = Match.find(Integer(params.fetch("id")))
+  matched_user = User.find(params.fetch("id").to_i())
+  @match = @user.find_match(matched_user)
   @restaurant = @match.matching_restaurants()
+  erb(:select_restaurant)
 end
 
 get ('/restaurant/:id') do

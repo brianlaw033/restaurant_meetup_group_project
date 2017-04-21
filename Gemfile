@@ -7,6 +7,7 @@ gem("pg")
 gem("sinatra")
 gem("rickshaw")
 gem('rack')
+gem('pry')
 
 group(:test) do
   gem("shoulda-matchers")

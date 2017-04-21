@@ -64,6 +64,18 @@ class User < ActiveRecord::Base
     criteria
   end
 
+  def find_match(matched_user)
+    result = []
+    scenario1 = Match.where(user1: self, user2: matched_user)
+    scenario2 = Match.where(user2: self, user1: matched_user)
+    if scenario1 != []
+      result = scenario1
+    elsif scenario2 !=[]
+      result = scenario2
+    end
+    result.first
+  end
+
 end
 
 
