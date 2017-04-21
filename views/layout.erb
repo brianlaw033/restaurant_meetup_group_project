@@ -47,7 +47,7 @@
                 </li>
                 <%if @user!=nil%>
                   <li>
-                    <a href="/bingo"><%=@user.bingo().count%></a>
+                    <a id="bingo" href="/bingo"><%=@user.bingo().count%></a>
                   </li>
                 <li style="margin:15px 0 0 10px">
                   <form action='/logout'>

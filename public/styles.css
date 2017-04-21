@@ -3,6 +3,15 @@
    margin-right: 0px;
 }
 
+#bingo {
+  margin-left: 10px;
+  color: white;
+  font-size: 25px;
+  background-color: orange;
+  border-radius: 50%;
+  text-align: center;
+}
+
 form{position:relative; direction:ltr;}
 .tasksInput{margin-right:150px;}
 .submit-and-options{position:absolute; right:2%; top:0;}
@@ -59,7 +68,7 @@ form{position:relative; direction:ltr;}
 body {
   font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
   font-weight: bold;
-  background-color: #ffffff;
+  background-color: #FAFAFA;
 }
 
 /* NAV BAR STYLING */
@@ -82,7 +91,7 @@ body {
 }
 
 #navbar-brand {
-    width: 300px
+    width: 250px;
 }
 
 /* ICONS */
@@ -95,7 +104,7 @@ body {
 
 .btn, .btn_signup {
   border-radius: 0px;
-  background-color: #ffffff; ;
+  /*background-color: #ffffff; ;*/
 }
 
 .btn-primary {
@@ -143,7 +152,7 @@ body {
     background-color: white;
     background-size: cover;
     background-image: url(/assets/food-summer-party-dinner.jpg);
-    opacity: 0.8px;
+    opacity: 0.8;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
