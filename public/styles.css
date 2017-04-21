@@ -28,7 +28,7 @@
 body {
   font-family: 'Palanquin Dark', "News Cycle", "Arial Narrow Bold", sans-serif;
   font-weight: bold;
-  background-color: #ffba55;
+  background-color: white;
 }
 
 /* NAV BAR STYLING */
@@ -88,8 +88,10 @@ body {
 .img-background {
     height: 45em;
     width: 100%;
+    background-color: white;
     background-size: cover;
     background-image: url(/assets/food-summer-party-dinner.jpg);
+    -webkit-filter: blur;
 }
 
 /* USER PAGE */
