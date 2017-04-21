@@ -1,4 +1,4 @@
-class Message < ActiveRecord::Base
+class Choice < ActiveRecord::Base
   belongs_to(:match)
 
 end
