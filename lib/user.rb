@@ -14,9 +14,12 @@ class User < ActiveRecord::Base
   def matchmake()
     result = []
     if self.gender_preference != ""
-      users = User.where(:gender => self.gender_preference).where.not(id: self.id).shuffle()
+      users = User.where(:gender => self.gender_preference)
+      .where.not(id: self.id)
+      .where.not(id: self.match_as_user1.map{|match| match.user2_id})
+      .shuffle()
     else
-      users = User.where.not(id: self.id).shuffle()
+      users = User.where.not(id: self.id).where.not(id: self.match_as_user1.map{|match| match.user2_id}).shuffle()
     end
     filtered_criteria = User.select_criteria_only(self)
     users.each do |user|
