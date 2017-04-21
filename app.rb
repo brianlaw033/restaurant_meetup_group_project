@@ -168,11 +168,11 @@ delete("/match/:id") do
 end
 
 get ("/select_restaurant/:id") do
-  matched_user = User.find(params.fetch("id").to_i())
-  @match = @user.find_match(matched_user)
+  @matched_user = User.find(params.fetch("id").to_i())
+  @match = @user.find_match(@matched_user)
   @restaurants = @match.matching_restaurants()
   @choices = Choice.where(id: @match.id.to_i)
-  @messages = Message.where(id: @match.id.to_i)
+  @messages = Message.where(match_id: @match.id.to_i)
   erb(:select_restaurant)
 end
 
@@ -220,3 +220,20 @@ delete("/restaurant/:id") do
   @restaurant.delete()
   redirect("/admin")
 end
+
+post('/message/:id') do
+  message = params.fetch('message')
+  matched_user = User.find(params.fetch("id").to_i())
+  @match = @user.find_match(matched_user)
+  Message.create(:message=> message, :match => @match, :sent_by => @user, :read => false)
+  redirect("/select_restaurant/#{matched_user.id}")
+end
+
+# get ("/select_restaurant/:id") do
+#   matched_user = User.find(params.fetch("id").to_i())
+#   @match = @user.find_match(matched_user)
+#   @restaurants = @match.matching_restaurants()
+#   @choices = Choice.where(id: @match.id.to_i)
+#   @messages = Message.where(id: @match.id.to_i)
+#   erb(:select_restaurant)
+# end

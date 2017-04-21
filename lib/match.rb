@@ -14,13 +14,13 @@ class Match < ActiveRecord::Base
     restaurants.each do |restaurant|
       restaurant_criteria = User.select_criteria_only(restaurant)
       restaurant_criteria.keep_if{|key,name| combined_criteria[key]}
-      if restaurant_criteria == combined_criteria
-        result.push(restaurant)
-      end
+        if restaurant_criteria == combined_criteria
+          result.push(restaurant)
+        end
     end
     result = result.first(5)
     if result.length == 0
-      result = Restaurant.where(combined_criteria.first[0] => combined_criteria.first[1]).shuffle.first(5)
+      result = Restaurant.where(user1_criteria.first[0] => user1_criteria.first[1]).shuffle.first(5)
     end
     result
     end
