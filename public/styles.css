@@ -67,6 +67,11 @@ body {
   color: black;
 }
 
+.btn-primary:hover {
+  background-color: rgb(242, 106, 127);
+  border-color: rgb(242, 106, 127);
+}
+
 .btn_signup {
 
 }
@@ -92,9 +97,16 @@ body {
 .img-background {
     height: 45em;
     width: 100%;
+    background-color: white;
     background-size: cover;
     background-image: url(/assets/food-summer-party-dinner.jpg);
     opacity: 0.8px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    position:fixed;
 }
 
 /* USER PAGE */
@@ -244,11 +256,6 @@ input[type="password"] {
     text-align: center;
 }
 
-
-
-body {
-    align-items: center;
-}
 
 .container {
     margin-top: 50px;

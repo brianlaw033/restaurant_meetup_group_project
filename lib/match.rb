@@ -9,7 +9,7 @@ class Match < ActiveRecord::Base
     result = []
     user1_criteria = User.select_criteria_only(self.user1)
     user2_criteria = User.select_criteria_only(self.user2)
-    combined_criteria = user1_criteria.merge(user2_criteria)
+    combined_criteria = user1_criteria.merge(user2_criteria).except('timeslot_id')
     restaurants = Restaurant.all().shuffle()
     restaurants.each do |restaurant|
       restaurant_criteria = User.select_criteria_only(restaurant)
