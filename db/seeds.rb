@@ -40,17 +40,17 @@ end
 
 class Match < ActiveRecord::Base
 list = [
-    [ "1", "2", "true", "false", ""  ],
-    [ "1", "3", "true", "true", ""  ],
-    [ "2", "1", "true", "false", ""  ],
-    [ "2", "4", "true", "true", ""  ],
-    [ "3", "1", "true", "false", ""  ],
-    [ "3", "2", "true", "true", ""  ],
-    [ "4", "3", "true", "false", ""  ]
+    [ "1", "2", "true", "false"  ],
+    [ "1", "3", "true", "true"  ],
+    [ "2", "1", "true", "false"  ],
+    [ "2", "4", "true", "true"  ],
+    [ "3", "1", "true", "false"  ],
+    [ "3", "2", "true", "true"  ],
+    [ "4", "3", "true", "false"  ]
   ]
 
-  list.each do |user1_id, user2_id, user1_like, user2_like, restaurant_id|
-    Match.create( user1_id: user1_id , user2_id: user2_id , user1_like: user1_like, user2_like: user2_like, restaurant_id: restaurant_id )
+  list.each do |user1_id, user2_id, user1_like, user2_like|
+    Match.create( user1_id: user1_id , user2_id: user2_id , user1_like: user1_like, user2_like: user2_like)
   end
 end
 

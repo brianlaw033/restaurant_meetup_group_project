@@ -14,6 +14,14 @@
 <h4>Search Restaurant available</h4>
 
 <%@restaurants.each() do |restaurant|%>
-  <a href="/restaurant/<%=restaurant.id%>"><li><%=restaurant.name()%></li></a>
-  <img style="height: 100px" src="<%=restaurant.image%>">
+  <div id="restaurant-tile" class="col-sm-6 col-md-2">
+    <a href="/restaurant/<%=restaurant.id%>">
+    <div class="thumbnail">
+      <img style="height: 80px" src="<%=restaurant.image%>">
+      <div class="caption">
+        <h5><%=restaurant.name()%></h5>
+      </div>
+    </div>
+  </a>
+  </div>
 <%end%>
