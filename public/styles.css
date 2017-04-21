@@ -34,9 +34,9 @@ body {
 /* NAV BAR STYLING */
 
 .navbar-default {
-  background-color: rgb(242, 106, 127);
+  background-color: #ffffff;
   margin-bottom: 0px;
-  border-color: rgb(242, 106, 127);
+  border-color: #ffffff;
 }
 
 .navbar {
@@ -46,38 +46,50 @@ body {
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
-  background-color: rgb(242, 106, 127);
-  color: #ffffff;
+  background-color: #ffffff; ;
+  color: grey;
 }
 
 #navbar-brand {
     width: 300px
 }
 
+/* ICONS */
+.fa {
+  /*color: rgb(74, 141, 42);*/
+}
+
+
 /* BUTTONS */
 
-.btn {
+.btn, .btn_signup {
   border-radius: 0px;
+  background-color: #ffffff; ;
 }
 
 .btn-primary {
-  background-color: rgb(242, 106, 127);
+  background-color: #ffffff; ;
   text-decoration: underline;
   border: none;
   color: black;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .btn-primary:hover {
-  background-color: rgb(242, 106, 127);
-  border-color: rgb(242, 106, 127);
-}
-
-.btn_signup {
-
+  background-color: #ffffff; ;
+  border-color: #ffffff;
+  color: grey;
 }
 
 .btn-lg {
 
+}
+
+.btn-danger {
+    color: #ffffff; ;
+    /*background-color: ;
+    border-color: inherit;*/
 }
 
 #btn_signup, #btn_login {
@@ -113,14 +125,12 @@ body {
 
 .user_block {
   display: inline-block;
-  border: solid 4px black;
   margin-top: 10px;
 }
 
 #user_img {
     height: 170px;
     border-radius: 0px;
-    padding: 20px;
 }
 
 
@@ -155,8 +165,6 @@ body {
     font-weight: bold;
     color: green;
 }
-
-
 
 #say-no {
     position: fixed;
@@ -214,7 +222,7 @@ body {
 }
 
 a {
-    color: black;
+    color: rgb(74, 141, 42);
     width: 60px;
 }
 
@@ -239,7 +247,7 @@ a {
 }
 
 input[type="text"] {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.2);
     margin: 5px;
     font-size: 28px;
     border: none;
@@ -248,7 +256,7 @@ input[type="text"] {
 }
 
 input[type="password"] {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.2);
     margin: 5px;
     font-size: 28px;
     border: none;
