@@ -18,11 +18,9 @@ class User < ActiveRecord::Base
     else
       users = User.where.not(id: self.id).shuffle()
     end
-    filtered_criteria = self.attributes.delete_if{|key,name| not CRITERIA.include?(key)}
-    filtered_criteria.keep_if{|key,name| name != nil}
+    filtered_criteria = User.select_criteria_only(self)
     users.each do |user|
-      temp_user = user.attributes.delete_if{|key,name| not CRITERIA.include?(key)}
-      temp_user.keep_if{|key,name| name != nil}
+      temp_user = User.select_criteria_only(user)
       temp_me = filtered_criteria.select{|key,name| temp_user[key]}
       temp_user.keep_if{|key,name| filtered_criteria[key]}
       if temp_me == {}
@@ -58,6 +56,12 @@ class User < ActiveRecord::Base
       end
     end
     result
+  end
+
+  def self.select_criteria_only(user)
+    criteria = user.attributes.delete_if{|key,name| not CRITERIA.include?(key)}
+    criteria.keep_if{|key,name| name != nil}
+    criteria
   end
 
 end

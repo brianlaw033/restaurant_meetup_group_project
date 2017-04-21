@@ -158,6 +158,17 @@ get('/bingo') do
   erb(:bingo)
 end
 
+delete("/match/:id") do
+  @match = Match.find(params.fetch("id").to_i())
+  @match.delete()
+  redirect("/bingo")
+end
+
+get ("/select_restaurant/:id") do
+  @match = Match.find(Integer(params.fetch("id")))
+  @restaurant = @match.matching_restaurants()
+end
+
 get ('/restaurant/:id') do
   @restaurant = Restaurant.find(params.fetch("id").to_i())
 end

@@ -3,27 +3,33 @@
     <tbody>
       <%@matches.each do|match|%>
       <tr>
-        <div class='row thumbnail'>
-          <a href='#' class='table-row'>
-            <div class='col-xs-8'>
-              <h3><%=match.name%></h3><br />
-              <%if match.cuisine != nil%>
-                Cuisine: <%=match.cuisine.name%><br />
-              <%end%>
-              <%if match.district != nil%>
-                District: <%=match.district.name%><br />
-              <%end%>
-              <%if match.budget != nil%>
-                Budget: Below $<%=match.budget.scale%><br />
-              <%end%>
-              <%if match.gender_preference != nil%>
-                Gender Preference: <%=match.gender_preference%><br />
-              <%end%>
-            </div>
-            <div class='col-xs-4'>
-              <img id="user_img" src="<%= match.image() %>" alt=“member_photo”>
-            </div>
-          </a>
+        <div class='thumbnail container' style='width: 95%'>
+          <form action='/match/<%=match.id%>' method='post'>
+            <input type="hidden" name="_method" value="delete">
+            <a href='/select_restaurant/<%=match.id%>' class='table-row' style='color:black'>
+              <div class='col-xs-8'>
+                <h3><%=match.name%></h3><br />
+                <%if match.cuisine != nil%>
+                  Cuisine: <%=match.cuisine.name%><br />
+                <%end%>
+                <%if match.district != nil%>
+                  District: <%=match.district.name%><br />
+                <%end%>
+                <%if match.budget != nil%>
+                  Budget: Below $<%=match.budget.scale%><br />
+                <%end%>
+                <%if match.gender_preference != nil%>
+                  Gender Preference: <%=match.gender_preference%><br />
+                <%end%>
+                <button type='submit' class='btn-sm btn-danger'>
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+              </div>
+              <div class='col-xs-4'>
+                <img id="user_img" src="<%= match.image() %>" alt=“member_photo”>
+              </div>
+            </a>
+          </form>
         </div>
       </tr>
       <%end%>
