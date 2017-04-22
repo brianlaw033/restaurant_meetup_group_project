@@ -10,7 +10,23 @@
 
 <div class='row'>
 
-<h4>likes <%=@current_user.cuisine.name%> and is based around <%=@current_user.district.name%></h4>
+<h4>likes
+  <% if @current_user.cuisine!= nil %>
+    <%=@current_user.cuisine.name%>
+  <%else%>
+    Any type of Cuisine
+  <%end%>
+  <% if @current_user.district!= nil %>
+    and is based around <%=@current_user.district.name%>
+  <%else%>
+    in Anywhere
+  <%end%>
+  <% if @current_user.timeslot!= nil %>
+    for <%=@current_user.timeslot.time%>
+  <%else%>
+    at Anytime
+  <%end%>
+</h4>
 
 <br>
 
