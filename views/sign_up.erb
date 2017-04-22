@@ -1,27 +1,41 @@
 <div class="img-background">
-  <div class="form_signup">
-    <form class="form-group" action="/sign_up" method="post">
-      <input type="text" name="username" id="username" placeholder="username" required><br>
-      <input type="text" name="name" id="name" placeholder="name" required><br>
-      <select id='gender' name='gender' type='text'>
-        <option value="M">Male</option>
-        <option value="F">Female</option>
-      </select>
-      <input type="text" name="image" id="image" placeholder="photo URL" ><br>
-      <input type="password" name="password" id="password" placeholder="password" required><br><br>
-      <button type="submit" id="btn_signup" class="btn btn-lg" name="button">Sign-up</button>
-    </form>
+  <div class="modal-dialog login-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title sign-up-sentence">
+          <div class='col-xs-5' style='text-align:right;'>
+            <img style='max-height:110px;' src='https://img.clipartfest.com/2785ba5ab2ffc882867fe33b47f67925_chicken-head-clipart-chicken-head-clipart_226-286.png' />
+          </div>
+          <div class='col-xs-7' style='text-align:left; padding-top:20px;'>
+            Sign Up Now & Never Eat Chicken Alone Anymore!
+          </div>
+        </h4>
+      </div>
+      <div class="form_signup">
+        <form class="form-group" action="/sign_up" method="post">
+          <input type="text" name="username" id="username" placeholder="Username" required><br>
+          <input type="text" name="name" id="name" placeholder="Full Name" required><br>
+            <label class='select-gender'>
+              <div style='padding-top: 5px;' class='col-xs-3'>
+                <input type="radio" name="gender" value="M">
+              </div>
+              <div class='col-xs-3'>
+                <i class="fa fa-male gender-icon male"></i>
+              </div>
+            </label>
+            <label class='select-gender'>
+              <div style='padding-top: 5px;' class='col-xs-3'>
+                <input type="radio" name="gender" value="F" >
+              </div>
+              <div class='col-xs-3'>
+                <i class="fa fa-female gender-icon female"></i>
+              </div>
+            </label><br />
+          <input type="text" name="image" id="image" placeholder="Profile Picture URL" ><br>
+          <input type="password" name="password" id="password" placeholder="Password" required><br>
+          <button type="submit" id="btn_signup" class="btn btn-sm btn-primary" name="button">Sign-up</button>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
-
-<form class="form-group" action="/sign_up" method="post">
-  <input class="signup-input" type="text" name="username" placeholder="username" required><br>
-  <input type="text" name="name" id="name" placeholder="name" required><br>
-  <select id='gender' name='gender' type='text'>
-      <option value="M">Male</option>
-      <option value="F">Female</option>
-  </select>
-  <input type="text" name="image" id="image" placeholder="photo URL" ><br>
-  <input type="password" name="password" id="password" placeholder="password" required><br><br>
-  <button type="submit" id="btn_signup" class="btn btn-lg" name="button">Sign-up</button>
-</form>

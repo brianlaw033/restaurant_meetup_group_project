@@ -109,7 +109,7 @@ body {
 /* BUTTONS */
 
 .btn, .btn_signup {
-  border-radius: 0px;
+  /*border-radius: 0px;*/
   /*background-color: #ffffff; ;*/
 }
 
@@ -145,10 +145,10 @@ body {
 
 #btn_signup, #btn_login {
     /*background-color: rgba(0, 0, 0, 0.4);*/
-    text-decoration: none;
+    /*text-decoration: none;*/
     /*color: white;*/
-    border: none;
-    font-size: 28px;
+    /*border: none;
+    font-size: 28px;*/
 }
 
 #div-button {
@@ -172,7 +172,32 @@ body {
 }
 
 .login-modal{
-  padding-top: 20%;
+  padding-top: 15%;
+}
+
+.sign-up-sentence{
+  font-size: 25px;
+}
+
+.form_signup{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+}
+
+.select-gender{
+  margin:0 !important;
+}
+
+.gender-icon{
+  font-size: 30px;
+}
+
+.male{
+  color:#147AC4;
+}
+
+.female{
+  color:#F92766;
 }
 
 /* USER PAGE */
