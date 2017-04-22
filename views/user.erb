@@ -1,111 +1,150 @@
-<div class="user_block">
-    <div class="user_img">
-        <img id="user_img" src="<%= @user.image() %>" alt=“member_photo”>
-    </div>
-    <div class="user_name">
-        <%= @user.name() %>
-    </div>
+  <!-- update profile -->
+<div class="update_user thumbnail col-sm-offset-3 col-sm-6 col-xs-12" style='margin-top: 20px;'>
+  <div class="user_block">
+      <img id="user_img" src="<%= @user.image() %>" alt=“member_photo”>
+  </div>
+  <form class="form-group"action="/user" method="post">
+    <input name="_method" value="patch" type="hidden">
+    <input type="hidden" name='username' value="<%= @user.username()%>">
+    <table class="table">
+      <tr>
+        <td><p class='update_profile'>Name:</p></td>
+        <td>
+          <input type="text" name="name" value="<%= @user.name()%>" placeholder="<%= @user.name()%>" required>
+        </td>
+      </tr>
+      <tr>
+        <td><p class='update_profile'>Password:</p></td>
+        <td>
+          <input type="password" name="password" placeholder='Enter Your Password' required>
+        </td>
+      </tr>
+      <tr>
+        <td><p class='update_profile'>Profile Picture URL:</p></td>
+        <td>
+          <input type="text" name="image" value="<%= @user.image()%>" placeholder="<%= @user.image()%>" required>
+        </td>
+      </tr>
+      <tr>
+        <td><p class='update_profile'>Gender:</p></td>
+        <td>
+          <label class='select-gender'>
+            <div style='padding-top: 5px;' class='col-xs-3'>
+              <input type="radio" name="gender" value="M" required>
+            </div>
+            <div class='col-xs-3'>
+              <i class="fa fa-male gender-icon male"></i>
+            </div>
+          </label>
+          <label class='select-gender'>
+            <div style='padding-top: 5px;' class='col-xs-3'>
+              <input type="radio" name="gender" value="F" required>
+            </div>
+            <div class='col-xs-3'>
+              <i class="fa fa-female gender-icon female"></i>
+            </div>
+          </label>
+        </td>
+      </tr>
+    </table>
+    <button class="btn btn-sm btn-primary" type="submit">
+      <i class="fa fa-pencil" aria-hidden="true"></i> Update
+    </button>
+  </form>
 </div>
-<!-- update profile -->
 
-<div class="update_user">
-    <form class="form-horizontal"action="/user" method="post">
-        <input class="col-xs-7" name="_method" value="patch" type="hidden">
-
-        <div class="form-group">
-            <label class="col-xs-4" for="name">Name:</label>
-            <input class="col-xs-7" type="text" name="name" value="<%= @user.name()%>" placeholder="<%= @user.name()%>">
-        </div>
-        <div class="form-group">
-            <label class="col-xs-4" for="username">Username:</label>
-            <input class="col-xs-7" type="text" name="username" value="<%= @user.username()%>" placeholder="<%= @user.username()%>">
-        </div>
-        <div class="form-group">
-            <label class="col-xs-4" for="password">Password:</label>
-            <input type="hidden" name="password" value="<%= @user.password()%>" placeholder="encrypted">
-            <input type="text" class="col-xs-7" value="encrypted" readonly>
-        </div>
-        <div class="form-group">
-            <label class="col-xs-4" for="image">Image URL:</label>
-            <input class="col-xs-7" type="text" name="image" value="<%= @user.image()%>" placeholder="<%= @user.image()%>">
-        </div>
-
-        <div class="form-group">
-            <label class="col-xs-4" for="gender">Gender:</label>
-
-            <select name="gender" id="gender">
-                <option value="<%= @user.gender%>">F</option>
-                <option value="<%= @user.gender%>">M</option>
-            </select>
-
-        </div>
-
-        <button class="btn-sm btn-default" type="submit"><i class="fa fa-pencil" aria-hidden="true"></i> Update</button>
-    </form>
-</div>
-
-<div class="delete_user">
+<!-- <div class="delete_user">
     <form action="/user/<%= @user.id() %>" method="post">
         <input name="_method" type="hidden" value="delete">
         <button class="btn-sm btn-danger" type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete
         </button>
     </form>
-</div>
+</div> -->
 
 <!-- search settings -->
-<div class="update_preference_matching">
-    <form class='form-group' action="/user_preference" method="post">
-        <input class="col-xs-7" name="_method" value="patch" type="hidden">
-
-        <div class="form-group">
-          <label class="col-xs-4" for="gender_preference"><i class="fa fa-male" aria-hidden="true"></i><i class="fa fa-female" aria-hidden="true"></i> Gender</label>
-          <select class="col-xs-7" name="gender_preference" id="gender_preference">
-              <option value="">Any</option>
-              <option value="M">Male</i></option>
-              <option value="F"> Female</i></option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label class="col-xs-4" for="cuisine_id"><i class="fa fa-cutlery" aria-hidden="true"></i> Cuisine</label>
-          <select class="col-xs-7" name="cuisine_id" id="cuisine_id">
-              <option value="">Any</option>
-              <% @cuisines.each() do |cuisine| %>
-              <option value="<%= cuisine.id() %>"><%= cuisine.name() %></option>
-              <% end %>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label class="col-xs-4" for="district_id">District</label>
-          <select class="col-xs-7" name="district_id" id="district_id">
-              <option value="">Any</option>
-              <% @districts.each() do |district| %>
-              <option value="<%= district.id() %>"><%= district.name() %></option>
-              <% end %>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label class="col-xs-4" for="budget_id">Budget</label>
-          <select class="col-xs-7" name="budget_id" id="budget_id">
-              <option value="">Any</option>
-              <% @budgets.each() do |budget| %>
-              <option value="<%= budget.id() %>"><%= budget.scale() %></option>
-              <% end %>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label class="col-xs-4" for="timeslot_id">Time</label>
-          <select class="col-xs-7" name="timeslot_id" id="timeslot_id">
-              <option value="">Any</option>
-              <% @timeslots.each() do |timeslot| %>
-              <option value="<%= timeslot.id() %>"><%= timeslot.time %></option>
-              <% end %>
-          </select>
-        </div>
-
-        <button type="submit" class="btn">Find Match!</button>
-    </form>
+<div class='thumbnail col-sm-offset-3 col-sm-6 col-xs-12'>
+  <div class="update_preference_matching">
+      <form class='form-group' action="/user_preference" method="post">
+          <input name="_method" value="patch" type="hidden">
+          <table class="table">
+            <tr>
+              <td>Gender</td>
+              <td>
+                <label class='select-gender'>
+                  <div style='padding-top: 5px;' class='col-xs-1'>
+                    <input type="radio" name="gender_preference" value="M" required>
+                  </div>
+                    <i class="fa fa-male gender-icon male"></i>
+                </label>
+                <label class='select-gender'>
+                  <div style='padding-top: 5px;' class='col-xs-1'>
+                    <input type="radio" name="gender_preference" value="F" required>
+                  </div>
+                    <i class="fa fa-female gender-icon female"></i>
+                </label>
+                <label>
+                  <div style='padding-top: 5px;' class='col-xs-1'>
+                    <input type="radio" name="gender_preference" value="" required>
+                  </div>
+                    <i class="fa fa-male gender-icon male"></i><i class="fa fa-female gender-icon female"></i>
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <i class="fa fa-cutlery" aria-hidden="true"></i>Cuisine
+              </td>
+              <td>
+                <select name="cuisine_id" id="cuisine_id">
+                    <option value="">Any</option>
+                    <% @cuisines.each() do |cuisine| %>
+                    <option value="<%= cuisine.id() %>"><%= cuisine.name() %></option>
+                    <% end %>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                District
+              </td>
+              <td>
+                <select name="district_id" id="district_id">
+                    <option value="">Any</option>
+                    <% @districts.each() do |district| %>
+                    <option value="<%= district.id() %>"><%= district.name() %></option>
+                    <% end %>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Budget
+              </td>
+              <td>
+                <select name="budget_id" id="budget_id">
+                    <option value="">Any</option>
+                    <% @budgets.each() do |budget| %>
+                    <option value="<%= budget.id() %>"><%= budget.scale() %></option>
+                    <% end %>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Time
+              </td>
+              <td>
+                <select name="timeslot_id" id="timeslot_id">
+                    <option value="">Any</option>
+                    <% @timeslots.each() do |timeslot| %>
+                    <option value="<%= timeslot.id() %>"><%= timeslot.time %></option>
+                    <% end %>
+                </select>
+              </td>
+            </tr>
+          </table>
+          <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-search" aria-hidden="true"></i>
+Match</button>
+      </form>
+  </div>
 </div>

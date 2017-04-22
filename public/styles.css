@@ -74,7 +74,7 @@ form{position:relative; direction:ltr;}
 body {
   font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
   font-weight: bold;
-  background-color: #FAFAFA;
+  background-color: #E9EBEE;
 }
 
 /* NAV BAR STYLING */
@@ -135,6 +135,10 @@ body {
 
 .btn-lg {
 
+}
+
+td{
+  border-top: 0px solid #000000 !important;
 }
 
 .btn-danger {
@@ -203,8 +207,8 @@ body {
 /* USER PAGE */
 
 .user_block {
-  display: inline-block;
-  margin-top: 10px;
+  /*display: inline-block;*/
+  /*margin-top: 10px;*/
 }
 
 #user_img {
@@ -212,10 +216,17 @@ body {
     border-radius: 0px;
 }
 
+.update_profile{
+  padding-top: 7px;
+}
+
 .form-group > select, .form-group > label {
   margin: 10px;
 }
 
+td>select{
+  width:50%;
+}
 
 
 /**/

@@ -117,10 +117,11 @@ end
 patch("/user") do
   name = params.fetch("name")
   username = params.fetch("username")
-  password = params.fetch("password")
+  password = params.fetch('password').to_sha1()
   image = params.fetch("image")
   gender = params.fetch("gender")
-  @user.update({:name => name, :username => username, :password => password, :image => image, :gender => gender})
+  user = User.find_by(username: username, password: password)
+  user.update({:name => name, :image => image, :gender => gender})
   @users = User.all()
   redirect("/user")
 end
