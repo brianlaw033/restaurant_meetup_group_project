@@ -1,4 +1,4 @@
-<form action="/admin" method="post">
+<form action="/restaurant" method="post">
     <div class="col-xs-12 col-sm-4">
         <label for="name">Name:</label>
         <input id="name" name="name" type="text">
@@ -12,25 +12,48 @@
         <input id="phone" name="phone" type="text">
     </div>
 
-    <div class="col-xs-12 col-sm-4">
-        <label for="district">District:</label>
-        <input id="district" name="district" type="text">
+
+    <div class="form-group">
+        <label class="col-sm-1" for="district_id">District:</label>
+        <select class="col-sm-3" name="district_id" id="district_id">
+            <% @districts.each() do |district| %>
+            <option value="<%= district.id() %>"><%= district.name() %></option>
+            <% end %>
+        </select>
+    </div>
+
+
+    <div class="form-group">
+        <label class="col-sm-1" for="cuisine_id">Cuisine:</label>
+        <select class="col-sm-3" name="cuisine_id" id="cuisine_id">
+            <% @cuisines.each() do |cuisine| %>
+            <option value="<%= cuisine.id() %>"><%= cuisine.name() %></option>
+            <% end %>
+        </select>
+    </div>
+
+
+    <div class="form-group">
+        <label class="col-sm-1" for="budget_id">Budget:</label>
+        <select class="col-sm-3" name="budget_id" id="budget_id">
+            <% @budgets.each() do |budget| %>
+            <option value="<%= budget.id() %>"><%= budget.scale() %></option>
+            <% end %>
+        </select>
     </div>
 
     <div class="col-xs-12 col-sm-4">
-        <label for="cuisine">Cuisine:</label>
-        <input id="cuisine" name="cuisine" type="text">
-    </div>
-
-    <div class="col-xs-12 col-sm-4">
-        <label for="budget">Budget:</label>
-        <input id="budget" name="budget" type="text">
+        <label for="image">Image Url:</label>
+        <input id="image" name="image" type="text">
     </div>
 
     <button class="btn btn-success" type="submit">Add Info</button>
 </form>
 
-<h4>Search Restaurant available</h4>
+<br>
+<hr>
+
+<h4>Restaurant available</h4>
 
 <%@restaurants.each() do |restaurant|%>
 <div id="restaurant-tile" class="col-sm-6 col-md-2">

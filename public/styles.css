@@ -104,6 +104,11 @@ body {
   color: grey;
 }
 
+.btn-success {
+  color: black !important;
+}
+
+
 .btn-lg {
 
 }

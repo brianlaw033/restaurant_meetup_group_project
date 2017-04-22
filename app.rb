@@ -89,6 +89,9 @@ get("/admin") do
     redirect('/')
   else
     @restaurants = Restaurant.all().order('name')
+    @districts = District.all
+    @cuisines = Cuisine.all
+    @budgets = Budget.all
     erb(:admin)
   end
 end
@@ -189,7 +192,7 @@ get ('/restaurant/:id') do
 end
 
 post ('/restaurant') do
-  id = params.fetch("id").to_i()
+  # id = params.fetch("id").to_i()
   name = params.fetch("name")
   address = params.fetch("address")
   phone = params.fetch("phone").to_i()
