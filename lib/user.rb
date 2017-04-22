@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
       users = User
       .where(:gender => self.gender_preference)
       .where.not(id: self.id)
-      .where.not(id: self.match_as_user2.map{|match| match.user2_id})
+      .where.not(id: self.match_as_user1.map{|match| match.user2_id})
       .shuffle()
     else
       users = User

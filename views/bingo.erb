@@ -3,7 +3,7 @@
     <tbody >
       <%@matches.each do|match|%>
       <tr>
-        <div class='thumbnail container' style='width: 95% ;margin: 15px'>
+        <div class='thumbnail container' style='width: 95% ;margin: 15px; margin-left:30px;'>
           <form action='/match/<%=match.id%>' method='post'>
             <input type="hidden" name="_method" value="delete">
             <a href='/select_restaurant/<%=match.id%>' class='table-row' style='color:black'>

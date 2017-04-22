@@ -3,65 +3,59 @@
 @restaurant = @match.matching_restaurants()
 @choices = Choice.find(@match.id)
 @messages = Message.find(@match.id) -->
-<div class="row">
+<div class="row" style='margin-top:20px;'>
 
-<div class="col-xs-2">
-</div>
-<div class="col-xs-4">
-  <img id="user_img" src="<%= @match.user1.image() %>" alt=“member_photo”>
-  <h3>Your preferences </h3>
-  <p>
-  <% if @match.user1.cuisine!=nil%>
-    <%=@match.user1.cuisine.name%>
-  <%else%>
-    Any
-  <%end%>
-  restaurant
-  <% if @match.user1.district!=nil %>
-  near <%=@match.user1.district.name%>
-  <%end%>
-  </p>
-  <% if @match.user1.budget!=nil %>
-  <p>Looking for a meal around $
-      <%=@match.user1.budget.scale%>
+  <div class="col-sm-offset-2 col-sm-4 col-xs-6 thumbnail" style='margin-bottom:0;'>
+    <img id="user_img" src="<%= @match.user1.image() %>" alt=“member_photo”>
+    <h3>You</h3>
+    <p>
+    <% if @match.user1.cuisine!=nil%>
+      <%=@match.user1.cuisine.name%>
     <%else%>
-    Any Price
+      Any
     <%end%>
-  </p>
-</div>
-<div class="col-xs-4">
-  <img id="user_img" src="<%= @match.user2.image() %>" alt=“member_photo”>
-  <h3><%=@match.user2.name%>'s preferences </h3>
-  <p>
-  <% if @match.user2.cuisine!=nil%>
-    <%=@match.user2.cuisine.name%>
-  <%else%>
-    Any
-  <%end%>
-  restaurant
-  <% if @match.user2.district!=nil %>
-  near <%=@match.user2.district.name%>
-  <%end%>
-  </p>
-  <% if @match.user2.budget!=nil %>
-  <p>Looking for a meal around $
-      <%=@match.user2.budget.scale%>
+    restaurant
+    <% if @match.user1.district!=nil %>
+    near <%=@match.user1.district.name%>
+    <%end%>
+    </p>
+    <% if @match.user1.budget!=nil %>
+    <p>Around $
+        <%=@match.user1.budget.scale%>
+      <%else%>
+      Any Price
+      <%end%>
+    </p>
+  </div>
+  <div class="col-sm-4 col-xs-6 thumbnail" style='margin-bottom:0;'>
+    <img id="user_img" src="<%= @match.user2.image() %>" alt=“member_photo”>
+    <h3><%=@match.user2.name%></h3>
+    <p>
+    <% if @match.user2.cuisine!=nil%>
+      <%=@match.user2.cuisine.name%>
     <%else%>
-    Any Price
+      Any
     <%end%>
-  </p>
+    restaurant
+    <% if @match.user2.district!=nil %>
+    near <%=@match.user2.district.name%>
+    <%end%>
+    </p>
+    <% if @match.user2.budget!=nil %>
+    <p>Around $
+        <%=@match.user2.budget.scale%>
+      <%else%>
+      Any Price
+      <%end%>
+    </p>
+  </div>
+  <div class="col-xs-2">
+  </div>
 </div>
-<div class="col-xs-2">
-</div>
-
-</div>
-
-<!-- below will be hidden -->
-<hr>
 <div class="row">
-<div class="col-sm-3">
+<div class="col-sm-2">
 </div>
-<div id="scroll-bottom" class="col-xs-12 col-sm-6" style="height:170px; overflow-y:scroll ; padding-left: 100px;text-align: left ">
+<div id="scroll-bottom" class="col-xs-12 col-sm-8 thumbnail" style="height:300px; overflow-y:scroll ; padding-left: 100px;text-align: left; margin-bottom:0; ">
   <%if @messages.any?%>
     <%@messages.each() do |message|%>
       <%if message.sent_by.id == @user.id %>
@@ -74,35 +68,35 @@
   You have no messages - kick start the conversation below
   <%end%>
 </div>
-<div class="col-sm-3">
+<div class="col-sm-2">
 </div>
 <!-- above will be hidden -->
 </div>
 <div class="row">
   <form action="/message/<%=@matched_user.id%>" method="post">
-      <input style="width:70%" style="margin-bottom:5px;" name="message">
-    <div class="submit-and-options">
-      <button class="btn btn-info">Send</button>
-    </div>
+      <input class='col-sm-offset-2 col-sm-7 col-xs-12' style="margin-bottom:5px;" name="message">
+      <button class="btn-xs btn-primary col-sm-1 col-xs-12">Send</button>
   </form>
 </div>
-<hr>
 
-<% if @match.matching_restaurants.length>0%>
-  <h3> According to your preferences you could try: </h3>
-  <ul>
-  <%@restaurants.each() do |restaurant|%>
-    <div id="restaurant-tile" class="col-xs-6 col-sm-6">
-      <div class="thumbnail">
-        <img style="height: 80px" src="<%=restaurant.image%>">
-        <div class="caption">
-          <h5><%=restaurant.name()%></h5>
+<div class='container-fluid suggestion'>
+  <% if @match.matching_restaurants.length>0%>
+    <h3> According to your preferences you could try: </h3>
+    <ul>
+    <%@restaurants.each() do |restaurant|%>
+      <div id="restaurant-tile" class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="thumbnail">
+          <img style="height: 80px" src="<%=restaurant.image%>">
+          <div class="caption">
+            <h5><%=restaurant.name()%></h5>
+          </div>
         </div>
       </div>
-    </div>
+    <%end%>
+    </ul>
   <%end%>
-  </ul>
-<%end%>
+</div>
+
 
 <script>
 var messageBody = document.querySelector('#scroll-bottom');

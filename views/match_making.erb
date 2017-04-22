@@ -1,62 +1,55 @@
-<h1><%=@users.length%> users Found</h1>
+<div class=''>
+
+  <div id="droppable" class='col-xs-3'>
+    <p id="say-no">No</p>
+  </div>
 
 
-<img id="user_img" src="<%= @current_user.image() %>" alt=“member_photo”>
+  <div class='thumbnail col-xs-6 matching_box' style='margin-top: 20px;'>
+    <h1><%=@users.length%> users Found</h1>
+    <img id="user_img" src="<%= @current_user.image() %>" alt=“member_photo”>
 
-<br>
+    <h1><%= @current_user.name %></h1>
+    <h4>likes
+      <% if @current_user.cuisine!= nil %>
+        <%=@current_user.cuisine.name%>
+      <%else%>
+        Any type of Cuisine
+      <%end%>
+      <% if @current_user.district!= nil %>
+        and is based around <%=@current_user.district.name%>
+      <%else%>
+        in Anywhere
+      <%end%>
+      <% if @current_user.timeslot!= nil %>
+        for <%=@current_user.timeslot.time%>
+      <%else%>
+        at Anytime
+      <%end%>
+    </h4>
+    <br />
+    <div class="col-md-4">
+    </div>
+    <div id="div-button" class="col-md-2">
+      <form action='/match_cross' method='post'>
+        <button id="no" type='submit' class="btn-primary btn-lg" name='button'><i class="fa fa-trash" aria-hidden="true"></i>
+  </i></button>
+      </form>
+    </div>
+    <div id="div-button" class="col-md-2">
+      <form action='/match_tick' method='post'>
+        <input type='hidden' id='count' name='user_to_add' value="<%= @current_user.id%>">
+        <button id="yes" type='submit' class="btn btn-success btn-lg" name='button'><i class="fa fa-cutlery" aria-hidden="true"></i> </button>
+      </form>
+      <br />
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
 
+  <div id="droppable2" class='col-sm-3'>
+    <p id="say-yes">Yes</p>
+  </div>
 
-<h1><%= @current_user.name %></h1>
-
-<div class='row'>
-
-<h4>likes
-  <% if @current_user.cuisine!= nil %>
-    <%=@current_user.cuisine.name%>
-  <%else%>
-    Any type of Cuisine
-  <%end%>
-  <% if @current_user.district!= nil %>
-    and is based around <%=@current_user.district.name%>
-  <%else%>
-    in Anywhere
-  <%end%>
-  <% if @current_user.timeslot!= nil %>
-    for <%=@current_user.timeslot.time%>
-  <%else%>
-    at Anytime
-  <%end%>
-</h4>
-
-<br>
-
-<div id="droppable">
-  <p id="say-no">No</p>
 </div>
-<div id="droppable2">
-  <p id="say-yes">Yes</p>
-</div>
-
-
-  <div class="col-md-4">
-  </div>
-  <div id="div-button" class="col-md-2">
-    <form action='/match_cross' method='post'>
-      <button id="no" type='submit' class="btn-primary btn-lg" name='button'><i class="fa fa-thumbs-down" aria-hidden="true"> Cross</i></button>
-    </form>
-  </div>
-  <div id="div-button" class="col-md-2">
-    <form action='/match_tick' method='post'>
-      <input type='hidden' id='count' name='user_to_add' value="<%= @current_user.id%>">
-      <button id="yes" type='submit' class="btn-success btn-lg" name='button'><i class="fa fa-thumbs-up" aria-hidden="true"> Tick </i> </button>
-    </form>
-  </div>
-  <div class="col-md-4">
-  </div>
-</div>
-<br>
-
-
-
-
 <script src="js/main.js"></script>
