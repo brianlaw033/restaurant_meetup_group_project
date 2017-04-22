@@ -20,7 +20,7 @@ class Match < ActiveRecord::Base
     end
     result = result.first(5)
     if result.length == 0
-      result = Restaurant.where(user1_criteria.first[0] => user1_criteria.first[1]).shuffle.first(5)
+      result = Restaurant.where(combined_criteria.first[0] => combined_criteria.first[1]).shuffle.first(5)
     end
     result
     end

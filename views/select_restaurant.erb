@@ -11,7 +11,7 @@
   <img id="user_img" src="<%= @match.user1.image() %>" alt=“member_photo”>
   <h3>Your preferences </h3>
   <p>
-  <% if @match.user1.cuisine!=nil %>
+  <% if @match.user1.cuisine!=nil%>
     <%=@match.user1.cuisine.name%>
   <%else%>
     Any
