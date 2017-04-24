@@ -1,3 +1,5 @@
+
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Poiret+One');
 .brand{
   font-family: 'Poiret One', cursive;
@@ -28,6 +30,7 @@ form{position:relative; direction:ltr;}
 }
 
 /* RESPONSIVE APPLICATION */
+/* BIG SCREEN */
 
 @media only screen and (min-width: 1026px) {
     .drop-hover-dislike {
@@ -40,8 +43,14 @@ form{position:relative; direction:ltr;}
         background-position: bottom;
         background-repeat: no-repeat;
     }
+
+    .matching_box{
+      position:relative;
+      left: 22em
+    }
 }
 
+/* SMALL SCREEN */
 @media only screen and (max-width: 1026px) {
     .drop-hover-dislike {
         display: none;
@@ -49,16 +58,57 @@ form{position:relative; direction:ltr;}
     .drop-hover-dislike {
         display: none;
     }
+
+    .matching_box{
+      position:relative;
+      left: 11em
+    }
+
 }
 
 #droppable {
-    border: 1px solid red;
-    height: 38em;
+  /*border: 1px solid red;*/
+    position: fixed;
+    top: 4em;
+    left: 0em;
+    width: 40%;
 }
 
 #droppable2 {
-    border: 1px solid green;
-    height: 38em;
+    /*border: 1px solid green;*/
+    position: fixed;
+    top: 4em;
+    right: 0em;
+    width: 40%;
+}
+
+/**/
+
+#yes, #no{
+  height:70px;
+  width: 70px;
+  font-size: 30px;
+}
+
+
+#say-yes {
+    position: fixed;
+    top: 5em;
+    right: 0.5em;
+    font-size: 38px;
+    font-weight: bold;
+    color: green;
+    /*border: 1px solid green;*/
+}
+
+#say-no {
+    position: fixed;
+    top: 5em;
+    left: 0.5em;
+    font-size: 38px;
+    font-weight: bold;
+    color: red;
+    /*border: 1px solid red;*/
 }
 
 /* GENERAL - FONTS, BACKGROUND */
@@ -200,6 +250,7 @@ td>select{
     color: red;
     border: 1px solid red;
 }
+
 
 /* ABOUT PAGE */
 
