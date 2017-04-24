@@ -21,9 +21,7 @@
                 <%if match.budget != nil%>
                   Budget: Below $<%=match.budget.scale%><br />
                 <%end%>
-                <%if match.gender_preference != nil%>
-                  Gender Preference: <%=match.gender_preference%><br />
-                <%end%>
+                <br />
                 <button type='submit' class='btn-xs btn-danger'style='float:right;position:relative;top:-140px;right:-10px'>
                   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </button>
@@ -36,3 +34,6 @@
     </tbody>
   </table>
 </div>
+
+<a style="width: 160px" href="/user" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i>
+Find a New Match</a>

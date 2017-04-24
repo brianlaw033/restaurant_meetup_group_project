@@ -5,11 +5,14 @@
       <img id="user_img" src="<%= @user.image() %>" alt=“member_photo”>
   </div>
   <div class="update_preference_matching">
+    <h3>Find a match</h3>
       <form class='form-group' action="/user_preference" method="post">
           <input name="_method" value="patch" type="hidden">
           <table class="table">
             <tr>
-              <td>Gender</td>
+              <td>
+                <i class="fa fa-venus-mars" aria-hidden=“true”></i> Gender Preference
+              </td>
               <td>
                 <label class='select-gender'>
                   <div style='padding-top: 5px;' class='col-xs-1'>
@@ -33,7 +36,7 @@
             </tr>
             <tr>
               <td>
-                <i class="fa fa-cutlery" aria-hidden="true"></i>Cuisine
+                <i class="fa fa-cutlery" aria-hidden="true"></i> Cuisine
               </td>
               <td>
                 <select name="cuisine_id" id="cuisine_id">
@@ -46,7 +49,7 @@
             </tr>
             <tr>
               <td>
-                District
+                <i class="fa fa-location-arrow" aria-hidden=“true”></i> District
               </td>
               <td>
                 <select name="district_id" id="district_id">
@@ -59,7 +62,7 @@
             </tr>
             <tr>
               <td>
-                Budget
+                <i class="fa fa-usd" aria-hidden=“true”></i> Budget
               </td>
               <td>
                 <select name="budget_id" id="budget_id">
@@ -72,7 +75,7 @@
             </tr>
             <tr>
               <td>
-                Time
+                <i class="fa fa-clock-o" aria-hidden=“true”></i> Time
               </td>
               <td>
                 <select name="timeslot_id" id="timeslot_id">
