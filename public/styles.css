@@ -1,11 +1,8 @@
-
-
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Poiret+One');
 .brand{
   font-family: 'Poiret One', cursive;
   font-size: 80px;
 }
-
 
 .row {
    margin-left: 0px;
@@ -39,6 +36,7 @@ form{position:relative; direction:ltr;}
         background-repeat: no-repeat;
     }
 
+
     .drop-hover-like {
         background-position: bottom;
         background-repeat: no-repeat;
@@ -46,8 +44,10 @@ form{position:relative; direction:ltr;}
 
     .matching_box{
       position:relative;
-      left: 22em
+      left: 22em;
     }
+
+
 }
 
 /* SMALL SCREEN */
@@ -61,10 +61,12 @@ form{position:relative; direction:ltr;}
 
     .matching_box{
       position:relative;
-      left: 11em
+      left: 11em;
     }
 
 }
+
+
 
 #droppable {
   /*border: 1px solid red;*/
@@ -72,6 +74,7 @@ form{position:relative; direction:ltr;}
     top: 4em;
     left: 0em;
     width: 40%;
+    height: 38em;
 }
 
 #droppable2 {
@@ -80,6 +83,7 @@ form{position:relative; direction:ltr;}
     top: 4em;
     right: 0em;
     width: 40%;
+    height: 38em;
 }
 
 /**/
@@ -142,12 +146,41 @@ body {
     width: 250px;
 }
 
+/* ICONS */
+.fa {
+  /*color: rgb(74, 141, 42);*/
+}
+
+
 /* BUTTONS */
 
+.btn, .btn_signup {
+  /*border-radius: 0px;*/
+  /*background-color: #ffffff; ;*/
+}
+
 .btn-primary {
+  /*background-color: #ffffff; ;*/
+  /*text-decoration: underline;*/
   border: none;
+  /*color: black;*/
   font-weight: bold;
   font-size: 16px;
+}
+
+.btn-primary:hover {
+  /*background-color: #ffffff; ;*/
+  /*border-color: #ffffff;*/
+  /*color: grey;*/
+}
+
+.btn-success {
+  /*color: black !important;*/
+}
+
+
+.btn-lg {
+
 }
 
 td{
@@ -156,6 +189,16 @@ td{
 
 .btn-danger {
     color: #ffffff; ;
+    /*background-color: ;
+    border-color: inherit;*/
+}
+
+#btn_signup, #btn_login {
+    /*background-color: rgba(0, 0, 0, 0.4);*/
+    /*text-decoration: none;*/
+    /*color: white;*/
+    /*border: none;
+    font-size: 28px;*/
 }
 
 #div-button {
@@ -231,31 +274,6 @@ td>select{
   width:50%;
 }
 
-/* CHOICE */
-
-#yes, #no{
-  height:70px;
-  width: 70px;
-  font-size: 30px;
-}
-
-
-#say-yes {
-    position: relative;
-    font-size: 38px;
-    font-weight: bold;
-    color: green;
-    border: 1px solid green;
-}
-
-#say-no {
-    position: relative;
-    font-size: 38px;
-    font-weight: bold;
-    color: red;
-    border: 1px solid red;
-}
-
 
 /* ABOUT PAGE */
 
@@ -302,6 +320,7 @@ td>select{
     right: 2em;
 }
 
+
 #restaurant-tile {
   height: 160px;
   margin-bottom: 2px
@@ -316,6 +335,7 @@ a {
     padding-top: 2%;
     font-family: 'Open Sans', sans-serif;
     font-size: 15px;
+
 }
 
 #match_name {
@@ -323,9 +343,31 @@ a {
     font-family: 'Righteous', serif;
 }
 
-input[type="text"], input[type="password"] {
-    margin: 5px;
+ ::-webkit-input-placeholder {
+    /*text-align: center;*/
+    /*background: transparent;*/
+    /*border: none;*/
+    /*color: white;*/
 }
+
+input[type="text"] {
+    /*background: rgba(0, 0, 0, 0.2);*/
+    margin: 5px;
+    /*font-size: 28px;*/
+    /*border: none;*/
+    /*color: white;*/
+    /*text-align: center;*/
+}
+
+input[type="password"] {
+    /*background: rgba(0, 0, 0, 0.2);*/
+    margin: 5px;
+    /*font-size: 28px;*/
+    /*border: none;*/
+    /*color: white;*/
+    /*text-align: center;*/
+}
+
 
 .container {
     margin-top: 50px;
@@ -341,11 +383,13 @@ input[type="text"], input[type="password"] {
   margin-top: 50px;
 }
 
+
 /* for fullscreen video on index page */
 
 * {
     box-sizing: border-box;
 }
+
 
 #vidtop-content {
     top: 0;
@@ -356,11 +400,4 @@ input[type="text"], input[type="password"] {
     text-align: right !important;
     float: right !important;
     margin-right: 20px;
-}
-
-/* RESTAURANT PAGE */
-
-.restaurant_admin {
-  max-width: 500px;
-  height: auto;
 }
