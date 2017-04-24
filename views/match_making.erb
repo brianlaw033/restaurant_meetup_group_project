@@ -6,45 +6,49 @@
 
 
   <div class='thumbnail col-xs-6 matching_box' style='margin-top: 20px;'>
-    <h1><%=@users.length%> users Found</h1>
-    <img id="user_img" src="<%= @current_user.image() %>" alt=“member_photo”>
+    <% if @current_user != nil%>
+      <h1><%=@users.length%> users Found</h1>
+      <img id="user_img" src="<%= @current_user.image() %>" alt=“member_photo”>
 
-    <h1><%= @current_user.name %></h1>
-    <h4>likes
-      <% if @current_user.cuisine!= nil %>
-        <%=@current_user.cuisine.name%>
-      <%else%>
-        Any type of Cuisine
-      <%end%>
-      <% if @current_user.district!= nil %>
-        and is based around <%=@current_user.district.name%>
-      <%else%>
-        in Anywhere
-      <%end%>
-      <% if @current_user.timeslot!= nil %>
-        for <%=@current_user.timeslot.time%>
-      <%else%>
-        at Anytime
-      <%end%>
-    </h4>
-    <br />
-    <div class="col-md-4">
-    </div>
-    <div id="div-button" class="col-md-2">
-      <form action='/match_cross' method='post'>
-        <button id="no" type='submit' class="btn-primary btn-lg" name='button'><i class="fa fa-trash" aria-hidden="true"></i>
-  </i></button>
-      </form>
-    </div>
-    <div id="div-button" class="col-md-2">
-      <form action='/match_tick' method='post'>
-        <input type='hidden' id='count' name='user_to_add' value="<%= @current_user.id%>">
-        <button id="yes" type='submit' class="btn btn-success btn-lg" name='button'><i class="fa fa-cutlery" aria-hidden="true"></i> </button>
-      </form>
+      <h1><%= @current_user.name %></h1>
+      <h4>likes
+        <% if @current_user.cuisine!= nil %>
+          <%=@current_user.cuisine.name%>
+        <%else%>
+          Any type of Cuisine
+        <%end%>
+        <% if @current_user.district!= nil %>
+          and is based around <%=@current_user.district.name%>
+        <%else%>
+          in Anywhere
+        <%end%>
+        <% if @current_user.timeslot!= nil %>
+          for <%=@current_user.timeslot.time%>
+        <%else%>
+          at Anytime
+        <%end%>
+      </h4>
       <br />
-    </div>
+      <div class="col-md-4">
+      </div>
+      <div id="div-button" class="col-md-2">
+        <form action='/match_cross' method='post'>
+          <button id="no" type='submit' class="btn-primary btn-lg" name='button'><i class="fa fa-trash" aria-hidden="true"></i>
+    </i></button>
+        </form>
+      </div>
+      <div id="div-button" class="col-md-2">
+        <form action='/match_tick' method='post'>
+          <input type='hidden' id='count' name='user_to_add' value="<%= @current_user.id%>">
+          <button id="yes" type='submit' class="btn btn-success btn-lg" name='button'><i class="fa fa-cutlery" aria-hidden="true"></i> </button>
+        </form>
+      <br />
+      </div>
     <div class="col-md-4">
     </div>
+    <%else%>
+      No Match User Found
+    <%end%>
   </div>
 
   <div id="droppable2" class='col-sm-3'>
