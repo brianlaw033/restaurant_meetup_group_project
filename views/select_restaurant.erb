@@ -84,14 +84,16 @@
     <h3> According to your preferences you could try: </h3>
     <ul>
     <%@restaurants.each() do |restaurant|%>
-      <div id="restaurant-tile" class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-        <div class="thumbnail">
-          <img style="height: 80px" src="<%=restaurant.image%>">
-          <div class="caption">
-            <h5><%=restaurant.name()%></h5>
+      <a href='/restaurant/<%=restaurant.id%>'>
+        <div id="restaurant-tile" class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="thumbnail">
+            <img style="height: 80px" src="<%=restaurant.image%>">
+            <div class="caption">
+              <h5><%=restaurant.name()%></h5>
+            </div>
           </div>
         </div>
-      </div>
+      </a>
     <%end%>
     </ul>
   <%end%>
