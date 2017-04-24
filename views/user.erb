@@ -4,68 +4,6 @@
   <div class="user_block">
       <img id="user_img" src="<%= @user.image() %>" alt=“member_photo”>
   </div>
-  <form class="form-group"action="/user" method="post">
-    <input name="_method" value="patch" type="hidden">
-    <input type="hidden" name='username' value="<%= @user.username()%>">
-    <table class="table">
-      <tr>
-        <td><p class='update_profile'>Name:</p></td>
-        <td>
-          <input type="text" name="name" value="<%= @user.name()%>" placeholder="<%= @user.name()%>" required>
-        </td>
-      </tr>
-      <tr>
-        <td><p class='update_profile'>Password:</p></td>
-        <td>
-          <input type="password" name="password" required>
-        </td>
-      </tr>
-      <tr>
-        <td><p class='update_profile'>Profile Picture URL:</p></td>
-        <td>
-          <input type="text" name="image" value="<%= @user.image()%>" placeholder="<%= @user.image()%>" required>
-        </td>
-      </tr>
-      <tr>
-        <td><p class='update_profile'>Gender:</p></td>
-        <td>
-          <label class='select-gender'>
-            <div style='padding-top: 5px;' class='col-xs-3'>
-              <input type="radio" name="gender" value="M" required>
-            </div>
-            <div class='col-xs-3'>
-              <i class="fa fa-male gender-icon male"></i>
-            </div>
-          </label>
-          <label class='select-gender'>
-            <div style='padding-top: 5px;' class='col-xs-3'>
-              <input type="radio" name="gender" value="F" required>
-            </div>
-            <div class='col-xs-3'>
-              <i class="fa fa-female gender-icon female"></i>
-            </div>
-          </label>
-        </td>
-      </tr>
-    </table>
-    <button class="btn btn-sm btn-primary" type="submit">
-      <i class="fa fa-pencil" aria-hidden="true"></i> Update
-    </button>
-  </form>
-</div>
-
-<!-- <div class="delete_user">
-    <form action="/user/<%= @user.id() %>" method="post">
-        <input name="_method" type="hidden" value="delete">
-        <button class="btn-sm btn-danger" type="submit">
-            <i class="fa fa-trash-o" aria-hidden="true"></i>
-            Delete
-        </button>
-    </form>
-</div>-->
-
-<!-- search settings -->
-<div class='thumbnail col-sm-offset-3 col-sm-6 col-xs-12'>
   <div class="update_preference_matching">
       <form class='form-group' action="/user_preference" method="post">
           <input name="_method" value="patch" type="hidden">
@@ -150,4 +88,68 @@
 Match</button>
       </form>
   </div>
+
+</div>
+
+<!-- <div class="delete_user">
+    <form action="/user/<%= @user.id() %>" method="post">
+        <input name="_method" type="hidden" value="delete">
+        <button class="btn-sm btn-danger" type="submit">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+            Delete
+        </button>
+    </form>
+</div>-->
+
+<!-- search settings -->
+<div class='thumbnail col-sm-offset-3 col-sm-6 col-xs-12'>
+  <h3>Update Your Profile</h3>
+  <form class="form-group"action="/user" method="post">
+    <input name="_method" value="patch" type="hidden">
+    <input type="hidden" name='username' value="<%= @user.username()%>">
+    <table class="table">
+      <tr>
+        <td><p class='update_profile'>Name:</p></td>
+        <td>
+          <input type="text" name="name" value="<%= @user.name()%>" placeholder="<%= @user.name()%>" required>
+        </td>
+      </tr>
+      <tr>
+        <td><p class='update_profile'>Password:</p></td>
+        <td>
+          <input type="password" name="password" required>
+        </td>
+      </tr>
+      <tr>
+        <td><p class='update_profile'>Profile Picture URL:</p></td>
+        <td>
+          <input type="text" name="image" value="<%= @user.image()%>" placeholder="<%= @user.image()%>" required>
+        </td>
+      </tr>
+      <tr>
+        <td><p class='update_profile'>Gender:</p></td>
+        <td>
+          <label class='select-gender'>
+            <div style='padding-top: 5px;' class='col-xs-3'>
+              <input type="radio" name="gender" value="M" required>
+            </div>
+            <div class='col-xs-3'>
+              <i class="fa fa-male gender-icon male"></i>
+            </div>
+          </label>
+          <label class='select-gender'>
+            <div style='padding-top: 5px;' class='col-xs-3'>
+              <input type="radio" name="gender" value="F" required>
+            </div>
+            <div class='col-xs-3'>
+              <i class="fa fa-female gender-icon female"></i>
+            </div>
+          </label>
+        </td>
+      </tr>
+    </table>
+    <button class="btn btn-sm btn-primary" type="submit">
+      <i class="fa fa-pencil" aria-hidden="true"></i> Update
+    </button>
+  </form>
 </div>
