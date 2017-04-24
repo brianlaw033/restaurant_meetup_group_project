@@ -58,7 +58,7 @@ form{position:relative; direction:ltr;}
 }*/
 
 #droppable {
-  border: 1px solid red;
+  /*border: 1px solid red;*/
     /*position: fixed;
     top: 4em;
     left: -10em;
@@ -68,7 +68,7 @@ form{position:relative; direction:ltr;}
 }
 
 #droppable2 {
-    border: 1px solid green;
+    /*border: 1px solid green;*/
     /*position: fixed;*/
     /*top: 4em;
     right: 10em;
