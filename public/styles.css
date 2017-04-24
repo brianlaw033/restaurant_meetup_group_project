@@ -209,6 +209,11 @@ td{
 
 /* USER PAGE */
 
+.user_block {
+  /*display: inline-block;*/
+  margin-bottom: 10px;
+}
+
 #user_img {
     height: 170px;
     border-radius: 0px;
