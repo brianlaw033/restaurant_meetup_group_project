@@ -1,14 +1,14 @@
 <h1><%= @restaurant.name%></h1>
 
 <div class="restaurant_properties">
-    <img src="<%= @restaurant.image%>">
-    <p>Phone:<%=@restaurant.phone%></p>
+    <img class="restaurant_admin"src="<%= @restaurant.image%>">
+    <p>Phone: <%=@restaurant.phone%></p>
     <p>District: <%=@restaurant.district.name()%></p>
     <p>Address: <%=@restaurant.address%></p>
-    <p>Cuisine:<%=@restaurant.cuisine.name()%></p>
+    <p>Cuisine: <%=@restaurant.cuisine.name()%></p>
     <p>
-      Budget:<%= @restaurant.budget.scale()%>
-    </p>
+      Budget: <%= @restaurant.budget.scale()%>
+    HK$</p>
 </div>
 
 <div class="update_restaurant">
@@ -54,13 +54,13 @@
         <% end %>
       </select>
     </div>
-    <button class="btn-sm btn-primary" type="submit"><i class="fa fa-pencil" aria-hidden="true">Update</i></button>
+    <button class="btn-sm btn-primary" type="submit"><i class="fa fa-pencil" aria-hidden="true"></i> Update</button>
   </form>
 </div>
 
 <div class="delete_restaurant">
   <form action="/restaurant/<%= @restaurant.id() %>" method="post">
     <input name="_method" type="hidden" value="delete">
-    <button class="btn-sm btn-danger" type="submit"><i class="fa fa-trash-o" aria-hidden="true">Delete </i></button>
+    <button class="btn-sm btn-primary" type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i>  Delete </button>
   </form>
 </div>
