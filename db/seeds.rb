@@ -44,7 +44,7 @@ list = [
     [ "1", "3", "true", "true"  ],
     [ "2", "1", "true", "false"  ],
     [ "2", "4", "true", "true"  ],
-    [ "3", "1", "true", "false"  ],
+    [ "3", "2", "true", "false"  ],
     [ "3", "2", "true", "true"  ],
     [ "4", "3", "true", "false"  ]
   ]
