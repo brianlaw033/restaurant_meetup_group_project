@@ -35,13 +35,10 @@ form{position:relative; direction:ltr;}
         background-repeat: no-repeat;
     }
 
-
     .drop-hover-like {
         background-position: bottom;
         background-repeat: no-repeat;
     }
-
-
 }
 
 @media only screen and (max-width: 1026px) {
@@ -53,26 +50,13 @@ form{position:relative; direction:ltr;}
     }
 }
 
-/*.matching_box{
-  position:fixed;
-}*/
-
 #droppable {
-  border: 1px solid red;
-    /*position: fixed;
-    top: 4em;
-    left: -10em;
-    width: 40%;*/
+    border: 1px solid red;
     height: 38em;
-
 }
 
 #droppable2 {
     border: 1px solid green;
-    /*position: fixed;*/
-    /*top: 4em;
-    right: 10em;
-    width: 40%;*/
     height: 38em;
 }
 
@@ -107,41 +91,12 @@ body {
     width: 250px;
 }
 
-/* ICONS */
-.fa {
-  /*color: rgb(74, 141, 42);*/
-}
-
-
 /* BUTTONS */
 
-.btn, .btn_signup {
-  /*border-radius: 0px;*/
-  /*background-color: #ffffff; ;*/
-}
-
 .btn-primary {
-  /*background-color: #ffffff; ;*/
-  /*text-decoration: underline;*/
   border: none;
-  /*color: black;*/
   font-weight: bold;
   font-size: 16px;
-}
-
-.btn-primary:hover {
-  /*background-color: #ffffff; ;*/
-  /*border-color: #ffffff;*/
-  /*color: grey;*/
-}
-
-.btn-success {
-  /*color: black !important;*/
-}
-
-
-.btn-lg {
-
 }
 
 td{
@@ -150,16 +105,6 @@ td{
 
 .btn-danger {
     color: #ffffff; ;
-    /*background-color: ;
-    border-color: inherit;*/
-}
-
-#btn_signup, #btn_login {
-    /*background-color: rgba(0, 0, 0, 0.4);*/
-    /*text-decoration: none;*/
-    /*color: white;*/
-    /*border: none;
-    font-size: 28px;*/
 }
 
 #div-button {
@@ -213,11 +158,6 @@ td{
 
 /* USER PAGE */
 
-.user_block {
-  /*display: inline-block;*/
-  /*margin-top: 10px;*/
-}
-
 #user_img {
     height: 170px;
     border-radius: 0px;
@@ -235,8 +175,7 @@ td>select{
   width:50%;
 }
 
-
-/**/
+/* CHOICE */
 
 #yes, #no{
   height:70px;
@@ -247,8 +186,6 @@ td>select{
 
 #say-yes {
     position: relative;
-    /*top: 5em;
-    right: 0.5em;*/
     font-size: 38px;
     font-weight: bold;
     color: green;
@@ -257,8 +194,6 @@ td>select{
 
 #say-no {
     position: relative;
-    /*top: 5em;
-    left: 0.5em;*/
     font-size: 38px;
     font-weight: bold;
     color: red;
@@ -310,7 +245,6 @@ td>select{
     right: 2em;
 }
 
-
 #restaurant-tile {
   height: 160px;
   margin-bottom: 2px
@@ -325,7 +259,6 @@ a {
     padding-top: 2%;
     font-family: 'Open Sans', sans-serif;
     font-size: 15px;
-
 }
 
 #match_name {
@@ -333,31 +266,9 @@ a {
     font-family: 'Righteous', serif;
 }
 
- ::-webkit-input-placeholder {
-    /*text-align: center;*/
-    /*background: transparent;*/
-    /*border: none;*/
-    /*color: white;*/
-}
-
-input[type="text"] {
-    /*background: rgba(0, 0, 0, 0.2);*/
+input[type="text"], input[type="password"] {
     margin: 5px;
-    /*font-size: 28px;*/
-    /*border: none;*/
-    /*color: white;*/
-    /*text-align: center;*/
 }
-
-input[type="password"] {
-    /*background: rgba(0, 0, 0, 0.2);*/
-    margin: 5px;
-    /*font-size: 28px;*/
-    /*border: none;*/
-    /*color: white;*/
-    /*text-align: center;*/
-}
-
 
 .container {
     margin-top: 50px;
@@ -373,13 +284,11 @@ input[type="password"] {
   margin-top: 50px;
 }
 
-
 /* for fullscreen video on index page */
 
 * {
     box-sizing: border-box;
 }
-
 
 #vidtop-content {
     top: 0;
@@ -390,4 +299,11 @@ input[type="password"] {
     text-align: right !important;
     float: right !important;
     margin-right: 20px;
+}
+
+/* RESTAURANT PAGE */
+
+.restaurant_admin {
+  max-width: 500px;
+  height: auto;
 }
