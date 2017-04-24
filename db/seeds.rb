@@ -40,13 +40,13 @@ end
 
 class Match < ActiveRecord::Base
 list = [
-    [ "1", "2", "true", "false"  ],
-    [ "1", "3", "true", "true"  ],
-    [ "2", "1", "true", "false"  ],
+    [ "1", "2", "true", ""  ],
+    [ "1", "3", "true", ""  ],
+    [ "2", "1", "true", ""  ],
     [ "2", "4", "true", "true"  ],
-    [ "3", "2", "true", "false"  ],
+    [ "3", "2", "true", ""  ],
     [ "3", "2", "true", "true"  ],
-    [ "4", "3", "true", "false"  ]
+    [ "4", "3", "true", ""  ]
   ]
 
   list.each do |user1_id, user2_id, user1_like, user2_like|
