@@ -23,11 +23,11 @@ Credits should also go to the following team comprising of the below members who
 
 * Username: `admin`   Password: `123`              (administrator account which can edit the Restaurants)
 * Username: `ken`     Password: `123`              (sample Male user)
-* Username: `AJ`      Password: `123`              (sample Male user)
+* Username: `AJ`      Password: `123`              (sample Female user)
 * You are also recommended to try out the App by signing up yourself
 
 ## Development:
-Further development can be done based on the following steps inside Ruby environment:
+Further development can be done based on the following steps in Ruby environment:
 * `git clone <repository-url>` this repository
 * `cd restaurant_meetup_group_project`
 * `bundle install` to install the gem files
