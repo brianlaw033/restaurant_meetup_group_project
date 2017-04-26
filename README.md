@@ -17,6 +17,15 @@ This project was created by the team comprising of the following members before 
 * Kevin Cho
 * Steve Safarowic
 
+## To try, please go to Heroku: http://never-eat-chicken-alone.herokuapp.com/
+
+## Trial accounts (usernames are case sensitive):
+
+* Username: `admin`   Password: `123`              (administrator account which can edit the Restaurants)
+* Username: `ken`     Password: `123`              (sample Male user)
+* Username: `AJ`      Password: `123`              (sample Male user)
+* You are also recommended to try out the App by signing up yourself
+
 ## Development:
 Further development can be done based on the following steps inside Ruby environment:
 * `git clone <repository-url>` this repository
@@ -38,4 +47,4 @@ We make use of github to collaborate together and have assigned Brian Law to be 
 <br/>  `git merge master`
 
 ## Disclaimer:
-All pictures in our seed database are captured from public sources and all names of our seeded users are fictitious. 
+All pictures in our seed database are captured from public sources and all names of our seeded users are fictitious.
