@@ -299,24 +299,22 @@ td>select{
 }
 
 #about-left {
-    width: 9.5em;
     border-radius: 0.5em;
     background-color: rgba(19, 163, 244, 0.3);
     font-size: 17px;
     color: rgb(242, 242, 242);
     position: fixed;
-    top: 28em;
+    top: 20em;
     left: 2em;
 }
 
 #about-right {
-    width: 9.5em;
     border-radius: 0.5em;
     background-color: rgba(19, 163, 244, 0.3);
     font-size: 17px;
     color: rgb(242, 242, 242);
     position: fixed;
-    top: 28em;
+    top: 20em;
     right: 2em;
 }
 
