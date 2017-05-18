@@ -299,6 +299,7 @@ td>select{
 }
 
 #about-left {
+    width: 9.5em;
     border-radius: 0.5em;
     background-color: rgba(19, 163, 244, 0.3);
     font-size: 17px;
@@ -309,6 +310,7 @@ td>select{
 }
 
 #about-right {
+    width: 9.5em;
     border-radius: 0.5em;
     background-color: rgba(19, 163, 244, 0.3);
     font-size: 17px;
